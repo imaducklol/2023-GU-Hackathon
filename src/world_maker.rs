@@ -7,10 +7,15 @@ pub struct World {
     pub BULLDOG_ALLEY_CENTRAL : Room,
     pub BULLDOG_ALLEY_EAST : Room,
     pub COLLEGE_HALL : Room,
+    pub CROSBY : Room,
     pub DESMET : Room,
     pub FOLEY_LAWN : Room,
-    pub HEMMINGSTON : Room,
+    pub FOLEY_LIBRARY : Room,
+    pub HEMMINGSON : Room,
     pub HERAK_QUAD : Room,
+    pub PATHWAYS : Room,
+    pub ROSAUER : Room,
+    pub WELCH : Room,
 }
 
 impl World {
@@ -43,6 +48,36 @@ impl World {
             "BULLDOG_ALLEY_EAST" => {
                 return &self.BULLDOG_ALLEY_EAST;
             }
+            "COLLEGE_HALL" => {
+                return &self.COLLEGE_HALL;
+            }
+            "CROSBY" => {
+                return &self.CROSBY;
+            }
+            "DESMET" => {
+                return &self.DESMET;
+            }
+            "FOLEY_LAWN" => {
+                return &self.FOLEY_LAWN;
+            }
+            "FOLEY_LIBRARY" => {
+                return &self.FOLEY_LIBRARY;
+            }
+            "HEMMINGSON" => {
+                return &self.HEMMINGSON;
+            }
+            "HERAK_QUAD" => {
+                return &self.HERAK_QUAD;
+            }
+            "PATHWAYS" => {
+                return &self.PATHWAYS;
+            }
+            "ROSAUER" => {
+                return &self.ROSAUER;
+            }
+            "WELCH" => {
+                return &self.WELCH;
+            }
             _ => {
                 return &self.EVIL_BAD_ERROR_ROOM;
             }
@@ -52,13 +87,21 @@ impl World {
 
 impl Default for World {
     fn default() -> Self {
-        World{EVIL_BAD_ERROR_ROOM : Default::default(),
+        // Default Constructor my beloved.
+        World{
+            EVIL_BAD_ERROR_ROOM : Default::default(),
             BULLDOG_ALLEY_CENTRAL : Default::default(),
             BULLDOG_ALLEY_EAST : Default::default(),
             COLLEGE_HALL : Default::default(),
+            CROSBY : Default::default(),
             DESMET : Default::default(),
             FOLEY_LAWN : Default::default(),
-            HEMMINGSTON : Default::default(),
-            HERAK_QUAD : Default::default(),}
+            FOLEY_LIBRARY : Default::default(),
+            HEMMINGSON : Default::default(),
+            HERAK_QUAD : Default::default(),
+            PATHWAYS : Default::default(),
+            ROSAUER : Default::default(),
+            WELCH : Default::default(),
+        }
     }
 }    
