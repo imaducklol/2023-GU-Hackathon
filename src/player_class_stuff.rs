@@ -1,8 +1,8 @@
 use crate::item_class::Item;
 
-struct Player {
-    health: i32,
-    intelligence: i32,
-    strength: i32,
-    inventory: Vec<Item>,
+pub struct Player {
+    pub health: i32,
+    pub intelligence: i32,
+    pub strength: i32,
+    pub inventory: Vec<Item>,
 }
