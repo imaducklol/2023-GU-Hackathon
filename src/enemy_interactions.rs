@@ -2,6 +2,11 @@ use crate::input::take_input;
 use crate::player_class_stuff::Player;
 use crate::toolkit;
 
+pub struct Enemy {
+    evade_dc: i32,
+    attack_dc: i32,
+}
+
 #[derive(PartialEq, Debug)]
 pub enum EncounterState {
     DefaultValue,
@@ -12,24 +17,24 @@ pub enum EncounterState {
 }
 
 pub fn encounter_enemy(player: &Player, evade_dc: &i32, attack_dc: &i32) -> EncounterState {
-    println!("You've encountered an enemy!");
+    let mut input: String;
+    let mut encounter_result: EncounterState = EncounterState::DefaultValue;
+
+    println!("You've encountered an Enemy!");
     println!("Do you want to evade (E), or attack (A)?!");
 
-    let mut input: String;
-
+    // Make sure that we have proper input of either E or A
     loop {
         input = take_input();
         if input.as_str() != "E" && input.as_str() != "A" {
             println!("That's not a valid input, please type (E) or (A)");
             continue;
-        } else {
-            break;
         }
+        break;
     }
 
-    let mut encounter_result: EncounterState = EncounterState::DefaultValue;
-
-    match &input[..] {
+    // Run code to either evade or attack, return the success or failure of the interaction
+    match input.as_str() {
         "E" => {
             println!("You attempt to evade Sodexo's evil Food Delivery Machine!");
             println!("Roll to evade! (Enter)");
