@@ -1,6 +1,6 @@
 use crate::room_class_stuff::Room;
 use crate::room_class_stuff::Connection;
-use crate::item_class::Item;
+use crate::extra_classes::Item;
 
 pub struct World {
     pub EVIL_BAD_ERROR_ROOM: Room,

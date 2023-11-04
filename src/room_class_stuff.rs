@@ -1,5 +1,5 @@
 use std::default;
-use crate::item_class::Item;
+use crate::extra_classes::{Item, RoomObject};
 
 pub struct Connection {
     pub destination : String,
@@ -11,7 +11,8 @@ pub struct Room {
     pub connections : Vec<Connection>,
     pub description : String,
     pub address : String,
-    pub objects : Vec<Item>,
+    pub items: Vec<Item>,
+    pub objects: Vec<RoomObject>
 
     //TODO - Add other things
 }
@@ -47,7 +48,7 @@ impl Room {
     pub fn get_item(self, name : String) -> Item {
         let mut found_item : Item = Item{name : String::from("NullItem"), tags : Vec::new()};
 
-        for item in self.objects {
+        for item in self.items {
             if item.name == name {
                 found_item = item;
             }
@@ -61,6 +62,6 @@ impl Room {
 // Room default constructor.
 impl Default for Room {
     fn default() -> Self {
-        Self {connections: Vec::new(), description: String::from("Empty"), objects : Vec::new(), address: String::from("Nullroom")}
+        Self {connections: Vec::new(), description: String::from("Empty"), items: Vec::new(), objects: Vec::new(), address: String::from("Nullroom")}
     }
 }
