@@ -3,20 +3,20 @@ use crate::room_class_stuff::Connection;
 use crate::item_class::Item;
 
 pub struct World {
-    pub EVIL_BAD_ERROR_ROOM : Room,
-    pub BULLDOG_ALLEY_CENTRAL : Room,
-    pub BULLDOG_ALLEY_EAST : Room,
-    pub COLLEGE_HALL : Room,
-    pub CROSBY : Room,
-    pub DESMET : Room,
-    pub FOLEY_LAWN : Room,
-    pub FOLEY_LIBRARY : Room,
-    pub HEMMINGSON : Room,
-    pub HERAK_QUAD : Room,
+    pub EVIL_BAD_ERROR_ROOM: Room,
+    pub BULLDOG_ALLEY_CENTRAL: Room,
+    pub BULLDOG_ALLEY_EAST: Room,
+    pub COLLEGE_HALL: Room,
+    pub CROSBY: Room,
+    pub DESMET: Room,
+    pub FOLEY_LAWN: Room,
+    pub FOLEY_LIBRARY: Room,
+    pub HEMMINGSON: Room,
+    pub HERAK_QUAD: Room,
     pub HUGHES: Room,
-    pub PATHWAYS : Room,
-    pub ROSAUER : Room,
-    pub WELCH : Room,
+    pub PATHWAYS: Room,
+    pub ROSAUER: Room,
+    pub WELCH: Room,
 }
 
 impl World {
@@ -46,7 +46,7 @@ impl World {
 
         self.BULLDOG_ALLEY_EAST = Default::default();
         self.BULLDOG_ALLEY_EAST.description = "You are in the east part of Bulldog Alley, from here \
-        you can see (Crosby), (Desmet), (Foley Lawn), (Hemmingson), (Rosauer), (Welch), and further down Bulldog Alley to the (West).".to_string();
+        you can see (Crosby), (Desmet), (Foley Lawn), (Hemmingson), (Rosauer), (Welch), further down Bulldog Alley to the (West), and the (Pathways) between Welch and Desmet.".to_string();
         self.BULLDOG_ALLEY_EAST.address = "BULLDOG_ALLEY_EAST".to_string();
         self.BULLDOG_ALLEY_EAST.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "West".to_string());
         self.BULLDOG_ALLEY_EAST.add_connection("CROSBY".to_string(), "CROSBY".to_string());
@@ -55,6 +55,7 @@ impl World {
         self.BULLDOG_ALLEY_EAST.add_connection("HEMMINGSON".to_string(), "HEMMINGSON".to_string());
         self.BULLDOG_ALLEY_EAST.add_connection("ROSAUER".to_string(), "ROSAUER".to_string());
         self.BULLDOG_ALLEY_EAST.add_connection("WELCH".to_string(), "WELCH".to_string());
+        self.BULLDOG_ALLEY_EAST.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
 
         self.COLLEGE_HALL = Default::default();
         self.COLLEGE_HALL.description = "You are inside of College Hall; you can see the door back out to (Bulldog Alley).".to_string();
@@ -103,23 +104,18 @@ impl World {
         self.PATHWAYS.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
 
         self.ROSAUER = Default::default();
-        self.ROSAUER.description = "You are inside of ROSAUER, you can see the door(s) back out to ".to_string();
+        self.ROSAUER.description = "You are inside of ROSAUER, you can see the door back out to the (East) side of Bulldog Alley.".to_string();
         self.ROSAUER.address = "ROSAUER".to_string();
-        self.ROSAUER.add_connection("BULLDOG_ALLEY_EAST".to_string(), "PLACEHOLDER".to_string());
+        self.ROSAUER.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
 
         self.WELCH = Default::default();
-        self.WELCH.description = "You are inside of WELCH, you can see the door(s) back out to ".to_string();
+        self.WELCH.description = "You are inside of WELCH, you can see the doors back out to the (East) side of Bulldog Alley and to the (Pathways) between Welch and Desmet.".to_string();
         self.WELCH.address = "WELCH".to_string();
         self.WELCH.add_connection("BULLDOG_ALLEY_EAST".to_string(), "PLACEHOLDER".to_string());
         self.WELCH.add_connection("PATHWAYS".to_string(), "PLACEHOLDER".to_string());
-
-
-
-
-
     }
 
-    pub fn change_room(&self, destination : String) -> &Room {
+    pub fn change_room(&self, destination: String) -> &Room {
         match destination.as_str() {
             "BULLDOG_ALLEY_CENTRAL" => {
                 return &self.BULLDOG_ALLEY_CENTRAL;
@@ -170,21 +166,21 @@ impl World {
 impl Default for World {
     fn default() -> Self {
         // Default Constructor my beloved.
-        World{
-            EVIL_BAD_ERROR_ROOM : Default::default(),
-            BULLDOG_ALLEY_CENTRAL : Default::default(),
-            BULLDOG_ALLEY_EAST : Default::default(),
-            COLLEGE_HALL : Default::default(),
-            CROSBY : Default::default(),
-            DESMET : Default::default(),
-            FOLEY_LAWN : Default::default(),
-            FOLEY_LIBRARY : Default::default(),
-            HEMMINGSON : Default::default(),
-            HERAK_QUAD : Default::default(),
-            HUGHES : Default::default(),
-            PATHWAYS : Default::default(),
-            ROSAUER : Default::default(),
-            WELCH : Default::default(),
+        World {
+            EVIL_BAD_ERROR_ROOM: Default::default(),
+            BULLDOG_ALLEY_CENTRAL: Default::default(),
+            BULLDOG_ALLEY_EAST: Default::default(),
+            COLLEGE_HALL: Default::default(),
+            CROSBY: Default::default(),
+            DESMET: Default::default(),
+            FOLEY_LAWN: Default::default(),
+            FOLEY_LIBRARY: Default::default(),
+            HEMMINGSON: Default::default(),
+            HERAK_QUAD: Default::default(),
+            HUGHES: Default::default(),
+            PATHWAYS: Default::default(),
+            ROSAUER: Default::default(),
+            WELCH: Default::default(),
         }
     }
 }    
