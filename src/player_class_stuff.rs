@@ -1,4 +1,4 @@
-use crate::item_class::Item;
+use crate::extra_classes::Item;
 
 pub struct Player {
     pub health: i32,

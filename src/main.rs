@@ -4,7 +4,7 @@ use crate::{input::take_input, world_maker::World, room_class_stuff::Room, toolk
 
 mod player_class_stuff;
 mod room_class_stuff;
-mod item_class;
+mod extra_classes;
 mod input;
 mod enemy_interactions;
 mod toolkit;
