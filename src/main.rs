@@ -1,6 +1,6 @@
 use std::default;
 
-use crate::{input::take_input, world_maker::World};
+use crate::{input::take_input, world_maker::World, room_class_stuff::Room, toolkit::clear_screen};
 
 mod player_class_stuff;
 mod room_class_stuff;
@@ -21,11 +21,18 @@ fn main() {
     current_room = world.change_room("BULLDOG_ALLEY_EAST".to_string());
     println!("{}", current_room.address);
 
-    command();
+    loop {
+        let mut next_address : String = "".to_string();
+        command(current_room, &world, &mut next_address);
+        if next_address != "".to_string() {
+            current_room = world.change_room(next_address.to_string());
+            println!("{}", current_room.description);
+        }
+    }
 
 }
 
-fn command() {
+fn command(current_room : &Room, world : &World, destination : &mut String) {
     //HELP, GO, INVESTIGATE
     let mut input_success = false; // Keep track of if we have successfully handled input.
 
@@ -36,10 +43,17 @@ fn command() {
 
         // Check for HELP command
         if "HELP" == input_command {
-            println!("Here are available commands: HELP, GO, INVESTIGATE");
+            println!("Here are available commands: HELP, GO, INVESTIGATE, LOOK AROUND");
             input_success = true;
             continue;
         }
+
+        // Check for LOOK AROUND command
+        if "LOOK AROUND" == input_command {
+            println!("{}", current_room.description);
+            input_success = true;
+            continue;
+          }
 
         // Check to see if it was split
         match splitted {
@@ -51,9 +65,19 @@ fn command() {
                 // Check the first part
                 match left {
                     "GO" => {
-                        println!("{}", left);
-                        input_success = true;
-                        continue;
+                        let attempted_move_name = right.to_string();
+                        let attempt_destination = (*current_room).get_room_destination(attempted_move_name);
+
+                        match attempt_destination.as_str() {
+                            "Nullroom" => {
+                                println!("I don't know how to get there.");
+                            }
+                            _ => {
+                                *destination = attempt_destination.clone();
+                                input_success = true;
+                                continue;
+                            }
+                        }
                     }
                     "INVESTIGATE" => {
                         println!("{}", left);

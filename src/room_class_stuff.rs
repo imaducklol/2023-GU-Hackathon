@@ -31,12 +31,12 @@ impl Room {
     }*/
 
     // Gets a room address given a string.
-    pub fn get_room_destination(self, name : String) -> String {
+    pub fn get_room_destination(&self, name : String) -> String {
         let mut room = "Nullroom".to_string();
 
-        for connection in self.connections {
+        for connection in &(*self).connections {
             if connection.name == name {
-                room = connection.destination;
+                room = (*connection).destination.clone();
             }
         }
 
