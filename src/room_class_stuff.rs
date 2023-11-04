@@ -1,4 +1,5 @@
 use std::default;
+use crate::item_class::Item;
 
 // Stores the address of a room, or Nil if empty.
 pub enum Address {
@@ -22,7 +23,9 @@ impl Default for Connection {
 // Room that houses locations.
 pub struct Room {
     connections : Vec<Connection>,
-    description : String
+    description : String,
+    objects : Vec<Item>,
+
     //TODO - Add other things
 }
 
@@ -66,11 +69,25 @@ impl Room {
 
         return room;
     }
+
+    // Gets an Item given a name
+    pub fn get_item(self, name : String) -> Item {
+        let mut found_item : Item = Item{name : String::from("NullItem"), tags : Vec::new()};
+
+        for item in self.objects {
+            if item.name == name {
+                found_item = item;
+            }
+        }
+
+        return found_item;
+    }
+
 }
 
 // Room default constructor.
 impl Default for Room {
     fn default() -> Self {
-        Self {connections: Vec::new(), description: String::from("Empty") }
+        Self {connections: Vec::new(), description: String::from("Empty"), objects : Vec::new() }
     }
 }

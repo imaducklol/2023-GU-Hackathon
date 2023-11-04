@@ -1,4 +1,4 @@
 pub struct Item {
-    name: String,
-    tags: Vec<String>,
+    pub name: String,
+    pub tags: Vec<String>,
 }
