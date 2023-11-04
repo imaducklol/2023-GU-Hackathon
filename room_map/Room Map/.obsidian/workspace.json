@@ -43,12 +43,8 @@
             "id": "04075c4d7034c9c2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Bulldog Alley.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ],
@@ -118,7 +114,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Bulldog Alley.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +130,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Bulldog Alley.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,9 +151,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Bulldog Alley.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -181,8 +173,9 @@
   },
   "active": "04075c4d7034c9c2",
   "lastOpenFiles": [
+    "Herak Quad.md",
+    "Bulldog Alley Central.md",
     "College Hall.md",
-    "Bulldog Alley.md",
     "Hemmingston.md"
   ]
 }

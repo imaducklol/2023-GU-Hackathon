@@ -53,6 +53,19 @@ impl Room {
             }
         }
     }
+
+    // Gets a room address given a string.
+    pub fn get_room_address(self, name : String) -> Address {
+        let mut room = Address::Nil;
+
+        for connection in self.connections {
+            if connection.name == name {
+                room = connection.address;
+            }
+        }
+
+        return room;
+    }
 }
 
 // Room default constructor.
