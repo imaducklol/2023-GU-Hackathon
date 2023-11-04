@@ -2,26 +2,54 @@ use std::default;
 use crate::extra_classes::{Item, RoomObject};
 
 pub struct Connection {
-    pub destination : String,
-    pub name : String,
+    pub destination: String,
+    pub name: String,
 }
 
 // Room that houses locations.
 pub struct Room {
-    pub connections : Vec<Connection>,
-    pub description : String,
-    pub address : String,
+    pub connections: Vec<Connection>,
+    pub description: String,
+    pub address: String,
     pub items: Vec<Item>,
-    pub objects: Vec<RoomObject>
+    pub objects: Vec<RoomObject>,
 
     //TODO - Add other things
 }
 
 impl Room {
     // Adds a connection to the room.
-    pub fn add_connection(&mut self, destination : String, name : String) {
+    pub fn add_connection(&mut self, destination: String, name: String) {
         let new_connection = Connection { destination: destination, name: name };
         self.connections.push(new_connection);
+    }
+
+    pub fn add_object(&mut self, object_name: &String, object_description: &String) {
+        let new_object = RoomObject { name: (*object_name).clone(), description: (*object_description).clone() };
+        self.objects.push(new_object)
+    }
+
+    pub fn add_item(&mut self, item_name: &String, item_description: &String) {
+        let new_item = RoomObject { name: (*item_name).clone(), description: (*item_description).clone() };
+        self.objects.push(new_item)
+    }
+
+    pub fn add_objects(&mut self, object_names: Vec<String>, object_descriptions: Vec<String>) {
+        if object_names.len() != object_descriptions.len() {
+            panic!("While adding objects, number of names and number of descriptions do not match!");
+        }
+        for i in 0..object_names.len() {
+            self.add_object(&object_names[i], &object_descriptions[i])
+        }
+    }
+
+    pub fn add_items(&mut self, item_names: Vec<String>, item_descriptions: Vec<String>) {
+        if item_names.len() != item_descriptions.len() {
+            panic!("While adding items, number of names and number of descriptions do not match!");
+        }
+        for i in 0..item_names.len() {
+            self.add_object(&item_names[i], &item_descriptions[i])
+        }
     }
 
     // Adds multiple connections from a list to the room.
@@ -45,8 +73,8 @@ impl Room {
     }
 
     // Gets an Item given a name
-    pub fn get_item(self, name : String) -> Item {
-        let mut found_item : Item = Item{name : String::from("NullItem"), tags : Vec::new()};
+    pub fn get_item(self, name: String) -> Item {
+        let mut found_item: Item = Item { name: String::from("NullItem"), tags: Vec::new() };
 
         for item in self.items {
             if item.name == name {
@@ -56,12 +84,11 @@ impl Room {
 
         return found_item;
     }
-
 }
 
 // Room default constructor.
 impl Default for Room {
     fn default() -> Self {
-        Self {connections: Vec::new(), description: String::from("Empty"), items: Vec::new(), objects: Vec::new(), address: String::from("Nullroom")}
+        Self { connections: Vec::new(), description: String::from("Empty"), items: Vec::new(), objects: Vec::new(), address: String::from("Nullroom") }
     }
 }

@@ -43,12 +43,15 @@ impl World {
         self.BULLDOG_ALLEY_CENTRAL.add_connection("DESMET".to_string(), "DESMET".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD Quad".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
+        self.BULLDOG_ALLEY_CENTRAL.add_objects(vec!("Tree".to_string(), "Shrub", "Bush"),
+                                               vec!("There is a corpse in the tree".to_string(), "There is a (Keycard) in the shrub!", "There are small pieces of broken robot in the bush"));
+        self.BULLDOG_ALLEY_CENTRAL.add_item(&"Keycard".to_string(), &"this key does something".to_string());
 
         self.BULLDOG_ALLEY_EAST = Default::default();
         self.BULLDOG_ALLEY_EAST.description = "You are in the east part of Bulldog Alley, from here \
         you can see (Crosby), (Desmet), (Foley Lawn), (Hemmingson), (Rosauer), (Welch), further down Bulldog Alley to the (West), and the (Pathways) between Welch and Desmet.".to_string();
         self.BULLDOG_ALLEY_EAST.address = "BULLDOG_ALLEY_EAST".to_string();
-        self.BULLDOG_ALLEY_EAST.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "West".to_string());
+        self.BULLDOG_ALLEY_EAST.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "WEST".to_string());
         self.BULLDOG_ALLEY_EAST.add_connection("CROSBY".to_string(), "CROSBY".to_string());
         self.BULLDOG_ALLEY_EAST.add_connection("DESMET".to_string(), "DESMET".to_string());
         self.BULLDOG_ALLEY_EAST.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
@@ -76,6 +79,20 @@ impl World {
         self.DESMET.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
         self.DESMET.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "CENTRAL".to_string());
         self.DESMET.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
+
+        self.FOLEY_LAWN = Default::default();
+        self.FOLEY_LAWN.description = "Blah blah blah.".to_string();
+        self.FOLEY_LAWN.address = "FOLEY_LAWN".to_string();
+        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
+        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
+        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
+        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
+        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
+
+        self.FOLEY_LIBRARY = Default::default();
+        self.FOLEY_LIBRARY.description = "Blah blah blah.".to_string();
+        self.FOLEY_LIBRARY.address = "FOLEY_LIBRARY".to_string();
+        self.FOLEY_LIBRARY.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
 
         self.HEMMINGSON = Default::default();
         self.HEMMINGSON.description = "You are inside of Hemmingson, you can see the door(s) back out to (East) Bulldog Alley, and (Foley Lawn).".to_string();
