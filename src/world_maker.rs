@@ -31,7 +31,7 @@ impl World {
         self.NAME.description = "Blah blah blah.".to_string();
         self.NAME.address = "NAME".to_string();
         self.NAME.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
-         */
+        */
 
         self.BULLDOG_ALLEY_CENTRAL = Default::default();
 
