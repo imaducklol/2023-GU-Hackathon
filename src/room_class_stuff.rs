@@ -1,10 +1,24 @@
 use std::default;
 use crate::item_class::Item;
-
+use std::rc::Rc;
 // Stores the address of a room, or Nil if empty.
 pub enum Address {
-    Address(Box<Room>), // To use this, you need to use Box::new(insert_room_here)
+    room(Rc<Room>), // To use this, you need to use Box::new(insert_room_here)
     Nil
+}
+
+impl Address {
+    pub fn get_room(&self) -> Room {
+        match self {
+            Self::Nil => {
+                return Default::default();
+            }
+
+            &Self::room(the_room) => {
+                return *the_room;
+            }
+        }
+    }
 }
 
 // Connection, stores an Address as well as a name of the connection.
@@ -22,9 +36,9 @@ impl Default for Connection {
 
 // Room that houses locations.
 pub struct Room {
-    connections : Vec<Connection>,
-    description : String,
-    objects : Vec<Item>,
+    pub connections : Vec<Connection>,
+    pub description : String,
+    pub objects : Vec<Item>,
 
     //TODO - Add other things
 }
@@ -32,6 +46,16 @@ pub struct Room {
 impl Room {
     // Adds a connection to the room.
     pub fn add_connection(&mut self, new_connection : Connection) {
+        self.connections.push(new_connection);
+    }
+
+    pub fn create_address(self) -> Address {
+        return Address::room(Rc::new(self));
+    }
+
+    // Creates and adds a connection to the room given another Room and a name.
+    pub fn add_connection_room(&mut self, connect_address : Rc<Address>, name : String) {
+        let new_connection = Connection{name : name, address : *connect_address};
         self.connections.push(new_connection);
     }
 
@@ -50,7 +74,7 @@ impl Room {
                     println!("Empty connection!");
                 }
 
-                Address::Address(connected_room) => {
+                Address::room(connected_room) => {
                     println!("{}", connected_room.description);
                 }
             }
