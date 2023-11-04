@@ -23,7 +23,15 @@ impl World {
         self.EVIL_BAD_ERROR_ROOM = Default::default();
         self.EVIL_BAD_ERROR_ROOM.description = "A very bad an evil room.".to_string();
         self.EVIL_BAD_ERROR_ROOM.address = "NULL".to_string();
+
         //connections
+
+        /*
+        self.NAME = Default::default();
+        self.NAME.description = "Blah blah blah.".to_string();
+        self.NAME.address = "NAME".to_string();
+        self.NAME.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
+         */
 
         self.BULLDOG_ALLEY_CENTRAL = Default::default();
 
