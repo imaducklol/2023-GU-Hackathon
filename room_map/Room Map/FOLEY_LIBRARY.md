@@ -1,2 +1,1 @@
-[[DESMET]]
 [[FOLEY_LAWN]]
