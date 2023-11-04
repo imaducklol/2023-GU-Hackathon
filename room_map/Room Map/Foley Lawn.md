@@ -1,5 +1,5 @@
 [[Crosby]]
-[[Foley Center]]
+[[Foley Library]]
 [[Hemmingston]]
 [[Pathways]]
 [[Bulldog Alley East]]

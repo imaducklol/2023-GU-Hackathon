@@ -1,4 +1,5 @@
 [[College Hall]]
-[[Herak Quad]]
-[[Desmet]]
 [[Crosby]]
+[[Desmet]]
+[[Herak Quad]]
+
