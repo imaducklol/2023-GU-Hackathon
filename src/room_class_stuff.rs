@@ -1,69 +1,42 @@
 use std::default;
 use crate::item_class::Item;
 
-// Stores the address of a room, or Nil if empty.
-pub enum Address {
-    Address(Box<Room>), // To use this, you need to use Box::new(insert_room_here)
-    Nil
-}
-
-// Connection, stores an Address as well as a name of the connection.
 pub struct Connection {
+    pub destination : String,
     pub name : String,
-    pub address : Address
-}
-
-// Default constructor
-impl Default for Connection {
-    fn default() -> Self {
-        Connection { name: String::from("Empty"), address: Address::Nil }
-    }
 }
 
 // Room that houses locations.
 pub struct Room {
-    connections : Vec<Connection>,
-    description : String,
-    objects : Vec<Item>,
+    pub connections : Vec<Connection>,
+    pub description : String,
+    pub address : String,
+    pub objects : Vec<Item>,
 
     //TODO - Add other things
 }
 
 impl Room {
     // Adds a connection to the room.
-    pub fn add_connection(&mut self, new_connection : Connection) {
+    pub fn add_connection(&mut self, destination : String, name : String) {
+        let new_connection = Connection { destination: destination, name: name };
         self.connections.push(new_connection);
     }
 
     // Adds multiple connections from a list to the room.
-    pub fn add_connections(&mut self, new_connection_vector : Vec<Connection>) {
+    /*pub fn add_connections(&mut self, new_connection_vector : Vec<Connection>) {
         for connection in new_connection_vector {
             self.add_connection(connection);
         }
-    }
-
-    // Prints all connections to the room.
-    pub fn print_connections(self) {
-        for connection in self.connections {
-            match connection.address {
-                Address::Nil => {
-                    println!("Empty connection!");
-                }
-
-                Address::Address(connected_room) => {
-                    println!("{}", connected_room.description);
-                }
-            }
-        }
-    }
+    }*/
 
     // Gets a room address given a string.
-    pub fn get_room_address(self, name : String) -> Address {
-        let mut room = Address::Nil;
+    pub fn get_room_destination(self, name : String) -> String {
+        let mut room = "Nullroom".to_string();
 
         for connection in self.connections {
             if connection.name == name {
-                room = connection.address;
+                room = connection.destination;
             }
         }
 
@@ -88,6 +61,6 @@ impl Room {
 // Room default constructor.
 impl Default for Room {
     fn default() -> Self {
-        Self {connections: Vec::new(), description: String::from("Empty"), objects : Vec::new() }
+        Self {connections: Vec::new(), description: String::from("Empty"), objects : Vec::new(), address: String::from("Nullroom")}
     }
 }
