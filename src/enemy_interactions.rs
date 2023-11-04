@@ -2,7 +2,8 @@ use crate::input::take_input;
 use crate::player_class_stuff::Player;
 use crate::toolkit;
 
-enum EncounterState {
+#[derive(PartialEq, Debug)]
+pub enum EncounterState {
     DefaultValue,
     EvadeSuccess,
     EvadeFailure,
@@ -10,16 +11,16 @@ enum EncounterState {
     AttackFailure,
 }
 
-pub fn encounter_enemy(player: Player, evade_dc: i32, attack_dc: i32) -> EncounterState {
+pub fn encounter_enemy(player: &Player, evade_dc: &i32, attack_dc: &i32) -> EncounterState {
     println!("You've encountered an enemy!");
-    println!("Do you want to evade (1), or attack (2)?!");
+    println!("Do you want to evade (E), or attack (A)?!");
 
     let mut input: String;
 
     loop {
         input = take_input();
-        if input != "e" || input != "a" {
-            println!("That's not a valid input, please type (a) or (e)");
+        if input.as_str() != "E" && input.as_str() != "A" {
+            println!("That's not a valid input, please type (E) or (A)");
             continue;
         } else {
             break;
@@ -28,13 +29,13 @@ pub fn encounter_enemy(player: Player, evade_dc: i32, attack_dc: i32) -> Encount
 
     let mut encounter_result: EncounterState = EncounterState::DefaultValue;
 
-    match input.as_str() {
-        "e" => {
+    match &input[..] {
+        "E" => {
             println!("You attempt to evade Sodexo's evil Food Delivery Machine!");
             println!("Roll to evade! (Enter)");
             let _ = take_input();
-            let roll: i32 = toolkit::roll_die(20, player.intelligence);
-            if roll > evade_dc {
+            let roll: i32 = toolkit::roll_die(&20, &player.intelligence);
+            if roll > *evade_dc {
                 println!("You successfully evaded!");
                 encounter_result = EncounterState::EvadeSuccess;
             } else {
@@ -42,12 +43,12 @@ pub fn encounter_enemy(player: Player, evade_dc: i32, attack_dc: i32) -> Encount
                 encounter_result = EncounterState::EvadeFailure;
             }
         }
-        "a" => {
+        "A" => {
             println!("You attempt to destroy Sodexo's evil Food Delivery Machine!");
             println!("Roll to attack! (Enter)");
             let _ = take_input();
-            let roll: i32 = toolkit::roll_die(20, player.strength);
-            if roll > attack_dc {
+            let roll: i32 = toolkit::roll_die(&20, &player.strength);
+            if roll > *attack_dc {
                 println!("You successfully destroyed the bot!");
                 encounter_result = EncounterState::AttackSuccess;
             } else {
