@@ -24,7 +24,7 @@ impl Player {
     pub fn print_inventory(&self) {
         print!("Your inventory has: ");
         if self.inventory.len() == 0 {
-            println!(" nothing...");
+            println!("nothing...");
             return;
         } 
 
