@@ -1,3 +1,4 @@
+
 use crate::extra_classes::Item;
 
 pub struct Player {
@@ -18,5 +19,22 @@ impl Player {
         }
 
         return found_item;
+    }
+
+    pub fn print_inventory(&self) {
+        print!("Your inventory has: ");
+        if self.inventory.len() == 0 {
+            println!(" nothing...");
+            return;
+        } 
+
+        for item in &(*self).inventory {
+            
+            if item.name == self.inventory[self.inventory.len() + 1].name {
+                println!("{}.", item.name);
+            } else {
+                print!("{},", item.name);
+            }
+        }
     }
 }

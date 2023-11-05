@@ -63,6 +63,13 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
             continue;
         }
 
+        // Check for INVENTORY command
+        if "INVENTORY" == input_command {
+            player.print_inventory();
+            input_success = true;
+            continue;
+        }
+
         // Check to see if it was split
         match splitted {
             None => {
