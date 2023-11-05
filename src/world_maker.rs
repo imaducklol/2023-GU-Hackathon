@@ -90,6 +90,63 @@ impl World {
         self.CROSBY.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
         self.CROSBY.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
         self.CROSBY.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD".to_string());
+        self.CROSBY.add_objects(vec!("CAREER OFFICE".to_string(), "SERVER ROOM".to_string()),
+                                vec!(
+                                    "As you enter the Career Office, you see on the desk two papers. One of them appears to be a (job application). The other is a (small notecard).".to_string(),
+                                    "You look inside the Server Room. It has servers in it. Perfectly normal, but behind them there is a small safe with a (book) on top".to_string()),
+                                    vec!("Career Office".to_string(), "Server Room".to_string()));
+        self.CROSBY.add_items(vec!("JOB APPLICATION".to_string(), "SMALL NOTECARD".to_string(), "HACKER LAPTOP".to_string(), "BOOK".to_string()),
+                              vec!(
+"Percival Nightshade
+123 Cybersecurity Lane, Techville, CA 12345
+Email: xxx_420_PercyHackz_1@email.com | Phone: (123) 456-7890
+[Date]
+
+Hiring Manager
+Sodexo, 789 Security Avenue, Secure City, TX 54321
+
+Dear Hiring Manager,
+
+I am a seasoned Cybersecurity Analyst with 5 years of experience, specializing in network security and incident response.
+I am passionate about protecting critical assets and staying current with evolving threats.
+
+Key Qualifications:
+- Security Architecture, Threat Assessment, and Risk Management.
+- Incident Response Planning and Execution.
+- Compliance with industry standards (PCI DSS, HIPAA, GDPR).
+- Penetration Testing and Vulnerability Assessments.
+- Security Awareness Training.
+
+Education:
+- Bachelor of Science in Cybersecurity, Gonzaga University, 2017.
+
+Professional Experience:
+Cybersecurity Analyst - Two Barrels
+- Led comprehensive cybersecurity strategy, reducing incidents by 30%.
+- Managed a team of 4 cybersecurity professionals.
+- Developed security policies and ensured industry compliance.
+
+I am excited to contribute my expertise to Sodexo's cybersecurity efforts. Thank you for considering my application. Let's discuss how I can enhance your team's capabilities.
+
+Sincerely,
+Percival Nightshade
+".to_string(),
+"Password: 8975 (This could be used on a safe)".to_string(),
+"Property of Percival Nightshade
+Use in hemmingson".to_string(),
+"The food delivery revolution and its consequences have been a disaster for the human race. It's a grim reality that we must confront head-on, a crisis born from our insatiable appetite for convenience at the expense of our humanity. In this age of instant gratification, the Sodexo food robots have become emblematic of our collective indifference to the very essence of what it means to be human.
+
+In the pursuit of efficiency, we have allowed the heart of our communities to wither away. We've relinquished the kitchen hearth, the family dinner table, and the neighborhood bistro in exchange for an assembly line of soulless machines. The Sodexo food robots, those metallic servants of our culinary desires, may promise speed and convenience, but they have stripped away the soul, the art, and the joy of sharing a meal.
+
+The act of preparing and sharing food has been at the core of our human experience for millennia. It has been the catalyst for conversation, laughter, and understanding. Yet, in our reckless quest for efficiency, we've relegated our food culture to the cold embrace of machines. The Sodexo food robots, no matter how advanced their algorithms, can never replicate the warmth of a grandmother's recipe, the secret ingredient passed down through generations, or the smile of a chef who takes pride in their craft.
+
+It is not the fault of the robots themselves but our complacency, our willingness to sacrifice the human touch for the sake of a few minutes saved. We have allowed the algorithms to replace the soul in our culinary endeavors, sacrificing our connection to our food, our communities, and ultimately ourselves. In doing so, we've surrendered the richness of human experience at the altar of convenience.
+
+We must rise against this dehumanizing wave, reclaim our kitchens, our dining rooms, and our neighborhood restaurants. The Sodexo food robots should not be the symbols of our culinary future, but a stark reminder of what we have lost. It's time to celebrate the diversity of flavors, the creativity of chefs, and the human connections that only a shared meal can provide. Let us revive the art of cooking, the joy of breaking bread together, and restore the heart and soul to our dining experiences.
+
+The food delivery revolution and the Sodexo food robots may have ushered in an era of convenience, but it's a convenience that has come at a heavy cost. It's time to reclaim our humanity, rediscover the beauty of real food, and forge a future where our love for cooking and sharing meals transcends the allure of automation. Our manifesto is a call to action, a plea to rediscover the soul of food and rekindle the warmth of our communal hearths, for in doing so, we restore what it truly means to be human.".to_string()),
+            vec!("Job Application".to_string(), "Small Notecard".to_string(), "HACKER LAPTOP".to_string(), "Book".to_string())
+        );
 
         self.DESMET = Default::default();
         self.DESMET.description = "You are inside of Desmet, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, and the (Pathways).".to_string();
