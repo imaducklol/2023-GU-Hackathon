@@ -24,7 +24,11 @@ fn main() {
 
     let mut current_room = &world.BULLDOG_ALLEY_CENTRAL;
 
-    intro();
+    let dev_mode = true;
+
+    if !dev_mode {
+        intro();
+    }
 
     loop {
         let mut next_address: String = "".to_string();
@@ -36,9 +40,41 @@ fn main() {
     }
 }
 
-fn intro() {
+fn splash_screen() {
     clear_screen();
-    println!("You wake up in the Desmet Lobby");
+    fancy_println(r"
+                                          ______                 _                            _                                                                        
+                                          |  ___|               | |                          | |                                                                       
+          ______  ______  ______  ______  | |_  ___    ___    __| | _ __    ___    ___  __ _ | | _   _  _ __   ___   ___   ______  ______  ______  ______              
+         |______||______||______||______| |  _|/ _ \  / _ \  / _` || '_ \  / _ \  / __|/ _` || || | | || '_ \ / __| / _ \ |______||______||______||______|             
+                                          | | | (_) || (_) || (_| || |_) || (_) || (__| (_| || || |_| || |_) |\__ \|  __/                                              
+                                          \_|  \___/  \___/  \__,_|| .__/  \___/  \___|\__,_||_| \__, || .__/ |___/ \___|                                              
+       _____         _               _                 _____       | |             _    _         __/ || |               ______   ___  ______  _____   __              
+      /  __ \       | |             (_)               |  __ \      |_|            | |  | |       |___/ |_|            _  | ___ \ / _ \ | ___ \|_   _| /  |             
+      | /  \/  __ _ | |_  ___  _ __  _  _ __    __ _  | |  \/  ___   _ __    ___  | |  | | _ __  ___   _ __    __ _  (_) | |_/ // /_\ \| |_/ /  | |   `| |             
+      | |     / _` || __|/ _ \| '__|| || '_ \  / _` | | | __  / _ \ | '_ \  / _ \ | |/\| || '__|/ _ \ | '_ \  / _` |     |  __/ |  _  ||    /   | |    | |             
+      | \__/\| (_| || |_|  __/| |   | || | | || (_| | | |_\ \| (_) || | | ||  __/ \  /\  /| |  | (_) || | | || (_| |  _  | |    | | | || |\ \   | |   _| |_            
+       \____/ \__,_| \__|\___||_|   |_||_| |_| \__, |  \____/ \___/ |_| |_| \___|  \/  \/ |_|   \___/ |_| |_| \__, | (_) \_|    \_| |_/\_| \_|  \_/   \___/            
+                                                __/ |                                                          __/ |                                                   
+                                               |___/                                                          |___/                                                    
+        ___    _____  _      _  _  _   _____         _                 _____                               ______                 _               _    _               
+       / _ \  /  __ \| |    (_)| |(_) |  _  |       (_)               |  __ \                              | ___ \               | |             | |  (_)              
+      / /_\ \ | /  \/| |__   _ | | _  | | | | _ __   _   ___   _ __   | |  \/  __ _  _ __ ___    ___  ___  | |_/ /_ __  ___    __| | _   _   ___ | |_  _   ___   _ __  
+      |  _  | | |    | '_ \ | || || | | | | || '_ \ | | / _ \ | '_ \  | | __  / _` || '_ ` _ \  / _ \/ __| |  __/| '__|/ _ \  / _` || | | | / __|| __|| | / _ \ | '_ \ 
+      | | | | | \__/\| | | || || || | \ \_/ /| | | || || (_) || | | | | |_\ \| (_| || | | | | ||  __/\__ \ | |   | |  | (_) || (_| || |_| || (__ | |_ | || (_) || | | |
+      \_| |_/  \____/|_| |_||_||_||_|  \___/ |_| |_||_| \___/ |_| |_|  \____/ \__,_||_| |_| |_| \___||___/ \_|   |_|   \___/  \__,_| \__,_| \___| \__||_| \___/ |_| |_|
+                                                                                                                                                                       
+                                                                                                                                                                       
+    ".to_string(), 0.00001);
+    sleep(4f64);
+}
+
+fn intro() {
+
+    splash_screen();
+
+    clear_screen();
+    println!("You wake up in the Desmet Lobby.");
     sleep(2f64);
     println!("What would you like to do?");
     sleep(4.0);
@@ -54,7 +90,7 @@ fn intro() {
 
     print_gap_clear();
     sleep(2f64);
-    println!("You can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, and the (Pathways).");
+    println!("You can see the doors back out to (Central) Bulldog Alley, (East) Bulldog Alley, and the (Pathways).");
     sleep(2f64);
     println!("What would you like to do?");
     sleep(3f64);
@@ -120,6 +156,16 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
                         match attempt_destination.as_str() {
                             "Nullroom" => {
                                 println!("I don't know how to get there.");
+                            }
+                            "CROSBY" => {
+                                if player.get_item("ID CARD".to_string()).code_name != "NullItem".to_string() {
+                                    println!("You use the Id Card to get into Crosby.");
+                                    *destination = attempt_destination.clone();
+                                    input_success = true;
+                                    continue;
+                                } else {
+                                    println!("It seems that Crosby requires an Id Card to get in.");
+                                }
                             }
                             _ => {
                                 *destination = attempt_destination.clone();

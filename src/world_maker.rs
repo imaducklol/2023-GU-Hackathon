@@ -204,10 +204,12 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
         self.ROSAUER.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
 
         self.WELCH = Default::default();
-        self.WELCH.description = "You are inside of WELCH, you can see the doors back out to the (East) side of Bulldog Alley and to the (Pathways) between Welch and Desmet.".to_string();
+        self.WELCH.description = "You are inside of WELCH, you can see the doors back out to the (East) side of Bulldog Alley and to the (Pathways) between Welch and Desmet. Nearby there is a (Tree).".to_string();
         self.WELCH.address = "WELCH".to_string();
-        self.WELCH.add_connection("BULLDOG_ALLEY_EAST".to_string(), "PLACEHOLDER".to_string());
-        self.WELCH.add_connection("PATHWAYS".to_string(), "PLACEHOLDER".to_string());
+        self.WELCH.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
+        self.WELCH.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
+        self.WELCH.add_item(&"SQUIRREL FOOD".to_string(), &"A few acorns. Maybe squribos would enjoy it.".to_string(), &"Squirrel Food".to_string());
+        self.WELCH.add_object(&"TREE".to_string(), &"There's a few acorns on the ground. Perhaps... (Squirrel Food)?".to_string(), &"Tree".to_string());
     }
 
     pub fn change_room(&self, destination: String) -> &Room {
@@ -288,6 +290,9 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
             }
             "CROSBY" => {
                 match tag {
+                    "SMALL NOTECARD" => {
+                        println!("You look around and enter the password found on the notecard into the safe. Doing so, you find a (Hacker Laptop).");
+                    }
                     _ => {
 
                     }
@@ -340,7 +345,7 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
                         println!();
                         println!("The end.");
                     }
-                    
+
                     "ID CARD" => {
                         println!("You try to scan yourself in to get further, but the card is declined. It seems the Sodexo Security system has been hacked... You'll need better tech to get in.");
                     }
