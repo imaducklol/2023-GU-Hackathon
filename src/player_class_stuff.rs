@@ -8,15 +8,15 @@ pub struct Player {
 }
 
 impl Player {
-    pub fn get_item(self, name: String) -> Item {
+    pub fn get_item(&self, name: String) -> Item {
         let mut found_item: Item = Item { name: String::from("NullItem"), description: String::from("NullItem"), tags: Vec::new() };
 
-        for item in self.inventory {
+        for item in &(*self).inventory {
             if item.name == name {
-                found_item = item;
+                found_item = (*item).clone();
             }
         }
 
-        return found_item;
+        return found_item.clone();
     }
 }

@@ -73,12 +73,12 @@ impl Room {
     }
 
     // Gets an Item given a name
-    pub fn get_item(self, name: String) -> Item {
+    pub fn get_item(&self, name: String) -> Item {
         let mut found_item: Item = Item { name: String::from("NullItem"), description: String::from("NullItem"), tags: Vec::new() };
 
-        for item in self.items {
-            if item.name == name {
-                found_item = item;
+        for item in &(*self).items {
+            if (*item).name == name {
+                found_item = (*item).clone();
             }
         }
 
@@ -86,12 +86,12 @@ impl Room {
     }
 
     // Gets an Object given a name
-    pub fn get_object(self, name: String) -> RoomObject {
+    pub fn get_object(&self, name: String) -> RoomObject {
         let mut found_object: RoomObject = RoomObject { name: String::from("NullObject"), description: String::from("NullObject") };
 
-        for object in self.objects {
-            if object.name == name {
-                found_object = object;
+        for object in &(*self).objects {
+            if (*object).name == name {
+                found_object = (*object).clone();
             }
         }
 
