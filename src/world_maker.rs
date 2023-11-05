@@ -174,7 +174,7 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
         self.FOLEY_LIBRARY.add_object(&"STAIRCASE".to_string(), &"You don't want to go up those steps.".to_string(), &"Staircase".to_string());
 
         self.HEMMINGSON = Default::default();
-        self.HEMMINGSON.description = "You are inside of Hemmingson, you can see the door(s) back out to (East) Bulldog Alley, and (Foley Lawn).".to_string();
+        self.HEMMINGSON.description = "You are outside of Hemmingson, but the doors are locked. A scanner lies waiting. Behind you is (East) Bulldog Alley, and (Foley Lawn).".to_string();
         self.HEMMINGSON.address = "HEMMINGSON".to_string();
         self.HEMMINGSON.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
         self.HEMMINGSON.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
@@ -340,8 +340,8 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
             }
             "HEMMINGSON" => {
                 match tag {
-                    "HACKING LAPTOP" => {
-                        println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. All around you are Sodexo food robots. They have heart eyes.");
+                    "HACKER LAPTOP" => {
+                        println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. The door opens. All around you are Sodexo food robots. They have heart eyes.");
                         println!();
                         println!("The end.");
                     }
