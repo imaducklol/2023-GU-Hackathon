@@ -36,16 +36,16 @@ impl World {
 
         self.BULLDOG_ALLEY_CENTRAL = Default::default();
         self.BULLDOG_ALLEY_CENTRAL.description = "You are in the center of Bulldog Alley, from here \
-        you can see (College Hall), (Crosby), (Desmet), (Herak Quad), and further down Bulldog Alley to the (East).".to_string();
+        you can see (College Hall), (Crosby), (Desmet), (Herak Quad), and further down Bulldog Alley to the (East). ".to_string();
         self.BULLDOG_ALLEY_CENTRAL.address = "BULLDOG_ALLEY_CENTRAL".to_string();
         self.BULLDOG_ALLEY_CENTRAL.add_connection("COLLEGE_HALL".to_string(), "COLLEGE HALL".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("CROSBY".to_string(), "CROSBY".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("DESMET".to_string(), "DESMET".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD Quad".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
-        self.BULLDOG_ALLEY_CENTRAL.add_objects(vec!("Tree".to_string(), "Shrub", "Bush"),
-                                               vec!("There is a corpse in the tree".to_string(), "There is a (Keycard) in the shrub!", "There are small pieces of broken robot in the bush"));
-        self.BULLDOG_ALLEY_CENTRAL.add_item(&"Keycard".to_string(), &"this key does something".to_string());
+        self.BULLDOG_ALLEY_CENTRAL.add_objects(vec!("TREE".to_string(), "SHRUB".to_string(), "BUSH".to_string()),
+                                               vec!("There is a corpse in the tree".to_string(), "There is a (Keycard) in the shrub!".to_string(), "There are small pieces of broken robot in the bush".to_string()));
+        self.BULLDOG_ALLEY_CENTRAL.add_item(&"KEYCARD".to_string(), &"this key does something".to_string());
 
         self.BULLDOG_ALLEY_EAST = Default::default();
         self.BULLDOG_ALLEY_EAST.description = "You are in the east part of Bulldog Alley, from here \
@@ -178,7 +178,129 @@ impl World {
             }
         }
     }
+
+    //always input tag, not name
+    pub fn use_thing(&mut self, room : String, tag : String) {
+        let tag = tag.as_str();
+        match room.as_str() {
+            "BULLDOG_ALLEY_CENTRAL" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "BULLDOG_ALLEY_EAST" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "COLLEGE_HALL" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "CROSBY" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "DESMET" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "FOLEY_LAWN" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "FOLEY_LIBRARY" => {
+                match tag {
+                    "LAPTOP_1" => {
+                        println!("You shake the mouse to wake up the laptop. As it boots up, you scroll through an article.");
+                        println!("BREAKING - SODEXO FOOD ROBOTS MALFUNCTION");
+                        println!("Published December 20, 2023");
+                        println!("Although many enjoy going home over the holidays, not everyone gets to do so. Some students remain on-campus, enjoying their holidays at the wonderful GU.");
+                        println!("However, some never get the luxury of going home. Corion Ilstess was found dead this morning in Foley.");
+                        println!("Early this morning, Corion ordered a sandwhich from Iggy's, delivered by the Sodexo food robots. However, as the robot approached, disaster struck.
+                        The robot approached Corion, and exploded. ");
+                    }
+                    _ => {
+
+                    }
+                }
+            }
+            "HEMMINGSON" => {
+                match tag {
+                    "HACKING_LAPTOP" => {
+                        println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. All around you are Sodexo food robots. They have heart eyes.");
+                        println!();
+                        println!("The end.");
+                    }
+                    _ => {
+
+                    }
+                }
+            }
+            "HERAK_QUAD" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "HUGHES" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "PATHWAYS" => {
+                match tag {
+                    "SQUIRREL_FOOD" => {
+                        println!("A squirrel approaches you and takes the food.");
+                        println!("You are filled with determination.");
+                    }
+                    _ => {
+
+                    }
+                }
+            }
+            "ROSAUER" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            "WELCH" => {
+                match tag {
+                    _ => {
+
+                    }
+                }
+            }
+            _ => {
+
+            }
+        }
+
+    }
 }
+
+
 
 impl Default for World {
     fn default() -> Self {

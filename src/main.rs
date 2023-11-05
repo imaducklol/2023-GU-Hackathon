@@ -17,9 +17,7 @@ fn main() {
 
     let mut current_room = &world.BULLDOG_ALLEY_CENTRAL;
 
-    println!("{}", current_room.address);
-    current_room = world.change_room("BULLDOG_ALLEY_EAST".to_string());
-    println!("{}", current_room.address);
+    intro();
 
     loop {
         let mut next_address : String = "".to_string();
@@ -30,6 +28,10 @@ fn main() {
         }
     }
 
+}
+
+fn intro() {
+    println!("");
 }
 
 fn command(current_room : &Room, world : &World, destination : &mut String) {
@@ -43,7 +45,7 @@ fn command(current_room : &Room, world : &World, destination : &mut String) {
 
         // Check for HELP command
         if "HELP" == input_command {
-            println!("Here are available commands: HELP, GO, INVESTIGATE, LOOK AROUND");
+            println!("Here are available commands: HELP, GO, INVESTIGATE, LOOK AROUND, GRAB, INVENTORY, USE");
             input_success = true;
             continue;
         }
