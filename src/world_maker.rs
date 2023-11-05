@@ -166,8 +166,7 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
         self.FOLEY_LAWN.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
 
         self.FOLEY_LIBRARY = Default::default();
-        self.FOLEY_LIBRARY.description = "You are inside Foley Library. You can see the door out to (Foley Lawn). There's a (Dusty Laptop) sitting on a desk. The 
-        lights are dim. You can make out the faint sound of whirring from above, coming from the (Staircase).".to_string();
+        self.FOLEY_LIBRARY.description = "You are inside Foley Library. You can see the door out to (Foley Lawn). There's a (Dusty Laptop) sitting on a desk. The lights are dim. You can make out the faint sound of whirring from above, coming from the (Staircase).".to_string();
         self.FOLEY_LIBRARY.address = "FOLEY_LIBRARY".to_string();
         self.FOLEY_LIBRARY.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
         self.FOLEY_LIBRARY.add_object(&"DUSTY LAPTOP".to_string(), &"An old, dusty laptop. The power light is on.".to_string(), &"Dusty Laptop".to_string());
@@ -344,6 +343,8 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
                         println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. The door opens. All around you are Sodexo food robots. They have heart eyes.");
                         println!();
                         println!("The end.");
+                        println!();
+                        println!("You have now unlocked Luigi... and entered freeplay.");
                     }
 
                     "ID CARD" => {
