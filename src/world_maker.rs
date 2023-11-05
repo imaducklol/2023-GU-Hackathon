@@ -163,7 +163,11 @@ of what we have lost. It's time to celebrate the diversity of flavors, the creat
 the human connections that only a shared meal can provide. Let us revive the art of cooking, the joy
 of breaking bread together, and restore the heart and soul to our dining experiences.
 
-The food delivery revolution and the Sodexo food robots may have ushered in an era of convenience, but it's a convenience that has come at a heavy cost. It's time to reclaim our humanity, rediscover the beauty of real food, and forge a future where our love for cooking and sharing meals transcends the allure of automation. Our manifesto is a call to action, a plea to rediscover the soul of food and rekindle the warmth of our communal hearths, for in doing so, we restore what it truly means to be human.".to_string()),
+The food delivery revolution and the Sodexo food robots may have ushered in an era of convenience, but
+it's a convenience that has come at a heavy cost. It's time to reclaim our humanity, rediscover the
+beauty of real food, and forge a future where our love for cooking and sharing meals transcends the
+allure of automation. Our manifesto is a call to action, a plea to rediscover the soul of food and rekindle
+the warmth of our communal hearths, for in doing so, we restore what it truly means to be human.".to_string()),
             vec!("Job Application".to_string(), "Small Notecard".to_string(), "HACKER LAPTOP".to_string(), "Book".to_string())
         );
 
