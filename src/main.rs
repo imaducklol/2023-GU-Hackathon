@@ -48,6 +48,10 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
         let input_command = take_input(); // Get input
         let splitted = input_command.split_once(" "); // Split into two parts
 
+        println!("\n ");
+        clear_screen();
+
+
         // Check for HELP command
         if "HELP" == input_command {
             println!("Here are available commands: HELP, GO, INVESTIGATE, LOOK AROUND, GRAB, INVENTORY, USE, QUIT");

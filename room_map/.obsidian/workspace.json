@@ -11,12 +11,8 @@
             "id": "f5bfbb5612300e9a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Room Map/CROSBY.md",
-                "mode": "source",
-                "source": true
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Room Map/CROSBY.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Room Map/CROSBY.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Room Map/CROSBY.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -147,6 +139,7 @@
   },
   "active": "f5bfbb5612300e9a",
   "lastOpenFiles": [
+    "Room Map/CROSBY.md",
     "Room Map/COLLEGE_HALL.md",
     "Room Map/BULLDOG_ALLEY_EAST.md",
     "Room Map/BULLDOG_ALLEY_CENTRAL.md",
@@ -157,7 +150,6 @@
     "Room Map/HEMMINGSON.md",
     "Room Map/FOLEY_LIBRARY.md",
     "Room Map/FOLEY_LAWN.md",
-    "Room Map/CROSBY.md",
     "Room Map/PATHWAYS.md",
     "Room Map/DESMET.md",
     "Room Map/Boone Path East.md",
