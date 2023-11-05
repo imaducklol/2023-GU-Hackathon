@@ -82,7 +82,7 @@ fn intro() {
 
     print_gap_clear();
     sleep(2f64);
-    println!("Here are available commands: HELP, GO, INVESTIGATE, LOOK AROUND, GRAB, INVENTORY, USE, QUIT");
+    println!("Here are available commands: HELP, GO (Location), INVESTIGATE (Place/Thing), LOOK AROUND, GRAB (Item), INVENTORY, USE (Item/Object), QUIT");
     sleep(2f64);
     println!("What would you like to do?");
     sleep(3f64);
