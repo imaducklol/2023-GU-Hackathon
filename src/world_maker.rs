@@ -41,7 +41,7 @@ impl World {
         self.BULLDOG_ALLEY_CENTRAL.add_connection("COLLEGE_HALL".to_string(), "COLLEGE HALL".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("CROSBY".to_string(), "CROSBY".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("DESMET".to_string(), "DESMET".to_string());
-        self.BULLDOG_ALLEY_CENTRAL.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD Quad".to_string());
+        self.BULLDOG_ALLEY_CENTRAL.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_objects(
             vec!("TREE".to_string(), "SHRUB".to_string(), "BUSH".to_string()),
@@ -88,18 +88,18 @@ impl World {
         self.DESMET.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
 
         self.FOLEY_LAWN = Default::default();
-        self.FOLEY_LAWN.description = "Blah blah blah.".to_string();
+        self.FOLEY_LAWN.description = "You are on the Foley Lawn. From here you can see (Crosby), (Foley Library), (Hemmingson), the (East) part of Bulldog Alley, and the (Pathways) in between Desmet and Welch.".to_string();
         self.FOLEY_LAWN.address = "FOLEY_LAWN".to_string();
-        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
-        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
-        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
-        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
-        self.FOLEY_LAWN.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
+        self.FOLEY_LAWN.add_connection("CROSBY".to_string(), "CROSBY".to_string());
+        self.FOLEY_LAWN.add_connection("FOLEY_LIBRARY".to_string(), "FOLEY LIBRARY".to_string());
+        self.FOLEY_LAWN.add_connection("HEMMINGSON".to_string(), "HEMMINGSON".to_string());
+        self.FOLEY_LAWN.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
+        self.FOLEY_LAWN.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
 
         self.FOLEY_LIBRARY = Default::default();
-        self.FOLEY_LIBRARY.description = "Blah blah blah.".to_string();
+        self.FOLEY_LIBRARY.description = "You are inside Foley Library. You can see the door out to (Foley Lawn).".to_string();
         self.FOLEY_LIBRARY.address = "FOLEY_LIBRARY".to_string();
-        self.FOLEY_LIBRARY.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
+        self.FOLEY_LIBRARY.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
 
         self.HEMMINGSON = Default::default();
         self.HEMMINGSON.description = "You are inside of Hemmingson, you can see the door(s) back out to (East) Bulldog Alley, and (Foley Lawn).".to_string();
