@@ -141,6 +141,24 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
                         }
                     }
 
+                    "USE" => {
+                        let room_object = current_room.get_object(right.to_string());
+                        let player_item = player.get_item(right.to_string());
+                        if player_item.code_name != "NullItem".to_string() {
+                            (*world).use_thing(current_room.address.clone(), player_item.code_name);
+                            input_success = true;
+                            continue;
+                        } else if room_object.name != "NullObject".to_string() {
+                            (*world).use_thing(current_room.address.clone(), room_object.name);
+                            input_success = true;
+                            continue;
+                        } else {
+                            println!("I do not know that.");
+                            input_success = true;
+                            continue;
+                        }
+                    }
+
                     _ => {
                         println!("Try again, I don't know {}.", left);
                     }

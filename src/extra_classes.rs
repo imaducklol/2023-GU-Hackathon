@@ -8,5 +8,6 @@ pub struct Item {
 #[derive(Clone)]
 pub struct RoomObject {
     pub name: String,
+    pub display_name : String,
     pub description: String,
 }

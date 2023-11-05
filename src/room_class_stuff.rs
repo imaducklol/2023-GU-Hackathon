@@ -24,8 +24,8 @@ impl Room {
         self.connections.push(new_connection);
     }
 
-    pub fn add_object(&mut self, object_name: &String, object_description: &String) {
-        let new_object = RoomObject { name: (*object_name).clone(), description: (*object_description).clone() };
+    pub fn add_object(&mut self, object_name: &String, object_description: &String, object_display_name: &String) {
+        let new_object = RoomObject { name: (*object_name).clone(), description: (*object_description).clone(), display_name: (*object_display_name).clone() };
         self.objects.push(new_object)
     }
 
@@ -34,12 +34,12 @@ impl Room {
         self.items.push(new_item)
     }
 
-    pub fn add_objects(&mut self, object_names: Vec<String>, object_descriptions: Vec<String>) {
+    pub fn add_objects(&mut self, object_names: Vec<String>, object_descriptions: Vec<String>, object_display_names: Vec<String>) {
         if object_names.len() != object_descriptions.len() {
             panic!("While adding objects, number of names and number of descriptions do not match!");
         }
         for i in 0..object_names.len() {
-            self.add_object(&object_names[i], &object_descriptions[i])
+            self.add_object(&object_names[i], &object_descriptions[i], &object_display_names[i])
         }
     }
 
@@ -87,7 +87,7 @@ impl Room {
 
     // Gets an Object given a name
     pub fn get_object(&self, name: String) -> RoomObject {
-        let mut found_object: RoomObject = RoomObject { name: String::from("NullObject"), description: String::from("NullObject") };
+        let mut found_object: RoomObject = RoomObject { name: String::from("NullObject"), description: String::from("NullObject"), display_name : String::from("NullObject") };
 
         for object in &(*self).objects {
             if (*object).name == name {

@@ -43,8 +43,15 @@ impl World {
         self.BULLDOG_ALLEY_CENTRAL.add_connection("DESMET".to_string(), "DESMET".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD Quad".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
-        self.BULLDOG_ALLEY_CENTRAL.add_objects(vec!("TREE".to_string(), "SHRUB".to_string(), "BUSH".to_string()),
-            vec!("There is a corpse in the tree".to_string(), "There is a (Keycard) in the shrub!".to_string(), "There are small pieces of broken robot in the bush".to_string()));
+        self.BULLDOG_ALLEY_CENTRAL.add_objects(
+            vec!("TREE".to_string(), "SHRUB".to_string(), "BUSH".to_string()),
+            vec!(
+                "There is a corpse in the tree".to_string(), 
+                "There is a (Keycard) in the shrub!".to_string(), 
+                "There are small pieces of broken robot in the bush".to_string()
+            ),
+            vec!("Tree".to_string(), "Shrub".to_string(), "Bush".to_string()),
+        );
         self.BULLDOG_ALLEY_CENTRAL.add_item(&"KEYCARD".to_string(), &"this key does something".to_string(), &"Keycard".to_string());
 
         self.BULLDOG_ALLEY_EAST = Default::default();
@@ -180,7 +187,7 @@ impl World {
     }
 
     //always input tag, not name
-    pub fn use_thing(&mut self, room : String, tag : String) {
+    pub fn use_thing(&self, room : String, tag : String) {
         let tag = tag.as_str();
         match room.as_str() {
             "BULLDOG_ALLEY_CENTRAL" => {
@@ -227,7 +234,7 @@ impl World {
             }
             "FOLEY_LIBRARY" => {
                 match tag {
-                    "LAPTOP_1" => {
+                    "LAPTOP 1" => {
                         println!("You shake the mouse to wake up the laptop. As it boots up, you scroll through an article.");
                         println!("BREAKING - SODEXO FOOD ROBOTS MALFUNCTION");
                         println!("Published December 20, 2023");
@@ -243,7 +250,7 @@ impl World {
             }
             "HEMMINGSON" => {
                 match tag {
-                    "HACKING_LAPTOP" => {
+                    "HACKING LAPTOP" => {
                         println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. All around you are Sodexo food robots. They have heart eyes.");
                         println!();
                         println!("The end.");
@@ -269,7 +276,7 @@ impl World {
             }
             "PATHWAYS" => {
                 match tag {
-                    "SQUIRREL_FOOD" => {
+                    "SQUIRREL FOOD" => {
                         println!("A squirrel approaches you and takes the food.");
                         println!("You are filled with determination.");
                     }
