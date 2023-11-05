@@ -30,7 +30,7 @@ impl Room {
     }
 
     pub fn add_item(&mut self, item_name: &String, item_description: &String, item_tags: &Vec<String>) {
-        let new_item = Item { name: (*item_name).clone(), description: (*item_description).clone(), tags: (*item_tags).clone() };
+        let new_item = Item { code_name: (*item_name).clone(), description: (*item_description).clone(), display_name: (*item_tags).clone() };
         self.items.push(new_item)
     }
 
@@ -60,7 +60,7 @@ impl Room {
     }*/
 
     // Gets a room address given a string.
-    pub fn get_room_destination(&self, name : String) -> String {
+    pub fn get_room_destination(&self, name: String) -> String {
         let mut room = "Nullroom".to_string();
 
         for connection in &(*self).connections {
@@ -74,10 +74,10 @@ impl Room {
 
     // Gets an Item given a name
     pub fn get_item(&self, name: String) -> Item {
-        let mut found_item: Item = Item { name: String::from("NullItem"), description: String::from("NullItem"), tags: Vec::new() };
+        let mut found_item: Item = Item { code_name: String::from("NullItem"), description: String::from("NullItem"), display_name: Vec::new() };
 
         for item in &(*self).items {
-            if (*item).name == name {
+            if (*item).code_name == name {
                 found_item = (*item).clone();
             }
         }

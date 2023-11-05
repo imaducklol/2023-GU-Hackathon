@@ -10,10 +10,14 @@ pub struct Player {
 
 impl Player {
     pub fn get_item(&self, name: String) -> Item {
-        let mut found_item: Item = Item { name: String::from("NullItem"), description: String::from("NullItem"), tags: Vec::new() };
+        let mut found_item: Item = Item {
+            code_name: "NullItem".to_string(),
+            description: "NullItem".to_string(),
+            display_name: "NullItem".to_string(),
+        };
 
         for item in &(*self).inventory {
-            if item.name == name {
+            if item.code_name == name {
                 found_item = (*item).clone();
             }
         }
