@@ -45,7 +45,7 @@ impl World {
         self.BULLDOG_ALLEY_CENTRAL.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_objects(vec!("TREE".to_string(), "SHRUB".to_string(), "BUSH".to_string()),
                                                vec!("There is a corpse in the tree".to_string(), "There is a (Keycard) in the shrub!".to_string(), "There are small pieces of broken robot in the bush".to_string()));
-        self.BULLDOG_ALLEY_CENTRAL.add_item(&"KEYCARD".to_string(), &"this key does something".to_string());
+        self.BULLDOG_ALLEY_CENTRAL.add_item(&"KEYCARD".to_string(), &"this key does something".to_string(), &vec!["KEY_1".to_string()]);
 
         self.BULLDOG_ALLEY_EAST = Default::default();
         self.BULLDOG_ALLEY_EAST.description = "You are in the east part of Bulldog Alley, from here \
