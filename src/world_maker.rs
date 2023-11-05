@@ -99,9 +99,9 @@ impl World {
         self.CROSBY.add_items(vec!("JOB APPLICATION".to_string(), "SMALL NOTECARD".to_string(), "HACKER LAPTOP".to_string(), "BOOK".to_string()),
                               vec!(
 "Percival Nightshade
-123 Cybersecurity Lane, Techville, CA 12345
+123 Boone Ave, Spokane, WA 99256
 Email: xxx_420_PercyHackz_1@email.com | Phone: (123) 456-7890
-[Date]
+Dec 12, 2023
 
 Hiring Manager
 Sodexo, 789 Security Avenue, Secure City, TX 54321
@@ -192,7 +192,7 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
         self.FOLEY_LIBRARY.add_object(&"STAIRCASE".to_string(), &"You don't want to go up those steps.".to_string(), &"Staircase".to_string());
 
         self.HEMMINGSON = Default::default();
-        self.HEMMINGSON.description = "You are inside of Hemmingson, you can see the door(s) back out to (East) Bulldog Alley, and (Foley Lawn).".to_string();
+        self.HEMMINGSON.description = "You are outside of Hemmingson, but the doors are locked. A scanner lies waiting. Behind you is (East) Bulldog Alley, and (Foley Lawn).".to_string();
         self.HEMMINGSON.address = "HEMMINGSON".to_string();
         self.HEMMINGSON.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
         self.HEMMINGSON.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
@@ -285,14 +285,14 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
             "BULLDOG_ALLEY_CENTRAL" => {
                 match tag {
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
             "BULLDOG_ALLEY_EAST" => {
                 match tag {
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
@@ -303,7 +303,7 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
                         println!("It slowly creaks, revealing a desolate room ahead. The walls are caked in blood, and a (Sodexo Corpse) lies slumped in a chair.");
                     }
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
@@ -313,21 +313,21 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
                         println!("You look around and enter the password found on the notecard into the safe. Doing so, you find a (Hacker Laptop).");
                     }
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
             "DESMET" => {
                 match tag {
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
             "FOLEY_LAWN" => {
                 match tag {
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
@@ -339,8 +339,7 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
                         println!("Published December 20, 2023");
                         println!("Although many enjoy going home over the holidays, not everyone gets to do so. Some students remain on-campus, enjoying their holidays at the wonderful GU.");
                         println!("However, some never get the luxury of going home. Corion Ilstess was found dead this morning in Foley.");
-                        println!("Early this morning, Corion ordered a sandwhich from Iggy's, delivered by the Sodexo food robots. However, as the robot approached, disaster struck.
-                        The robot approached Corion, and exploded. ");
+                        println!("Early this morning, Corion ordered a sandwhich from Iggy's, delivered by the Sodexo food robots. However, as the robot approached, disaster struck. The robot approached Corion, and exploded. ");
                     }
                     "ROBOT SCRAP" => {
                         println!("You sit down at one of the PCs in the library. Curious, you Google for information about the Robot Scrap, looking to find any information you can about it.");
@@ -353,14 +352,14 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
                         println!("- Soda Dexter");
                     }
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
             "HEMMINGSON" => {
                 match tag {
-                    "HACKING LAPTOP" => {
-                        println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. All around you are Sodexo food robots. They have heart eyes.");
+                    "HACKER LAPTOP" => {
+                        println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. The door opens. All around you are Sodexo food robots. They have heart eyes.");
                         println!();
                         println!("The end.");
                     }
@@ -369,21 +368,21 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
                         println!("You try to scan yourself in to get further, but the card is declined. It seems the Sodexo Security system has been hacked... You'll need better tech to get in.");
                     }
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
             "HERAK_QUAD" => {
                 match tag {
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
             "HUGHES" => {
                 match tag {
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
@@ -394,21 +393,21 @@ The food delivery revolution and the Sodexo food robots may have ushered in an e
                         println!("You are filled with determination.");
                     }
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
             "ROSAUER" => {
                 match tag {
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
             "WELCH" => {
                 match tag {
                     _ => {
-
+                        println!("Unable to use that.");
                     }
                 }
             }
