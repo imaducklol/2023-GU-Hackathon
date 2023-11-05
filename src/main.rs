@@ -2,6 +2,7 @@ use std::default;
 
 use crate::{input::take_input, world_maker::World, room_class_stuff::Room, toolkit::clear_screen};
 use crate::player_class_stuff::Player;
+use crate::toolkit::{fancy_println, print_gap_clear, sleep};
 
 mod player_class_stuff;
 mod room_class_stuff;
@@ -36,7 +37,33 @@ fn main() {
 }
 
 fn intro() {
-    println!("");
+    clear_screen();
+    println!("You wake up in the Desmet Lobby");
+    sleep(2f64);
+    println!("What would you like to do?");
+    sleep(4.0);
+    fancy_println("help".to_string(), 0.25);
+
+    print_gap_clear();
+    sleep(2f64);
+    println!("Here are available commands: HELP, GO, INVESTIGATE, LOOK AROUND, GRAB, INVENTORY, USE, QUIT");
+    sleep(2f64);
+    println!("What would you like to do?");
+    sleep(3f64);
+    fancy_println("look around".to_string(), 0.25);
+
+    print_gap_clear();
+    sleep(2f64);
+    println!("You can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, and the (Pathways).");
+    sleep(2f64);
+    println!("What would you like to do?");
+    sleep(3f64);
+    fancy_println("go central".to_string(), 0.25);
+
+    print_gap_clear();
+    sleep(2f64);
+    println!("You are in the center of Bulldog Alley, from here you can see (College Hall), (Crosby), (Desmet), (Herak Quad), and further down Bulldog Alley to the (East). ");
+    sleep(2f64);
 }
 
 fn command(current_room: &Room, world: &World, destination: &mut String, player: &mut Player) {
@@ -48,8 +75,7 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
         let input_command = take_input(); // Get input
         let splitted = input_command.split_once(" "); // Split into two parts
 
-        println!("\n ");
-        clear_screen();
+        print_gap_clear();
 
 
         // Check for HELP command
