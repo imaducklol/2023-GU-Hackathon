@@ -29,9 +29,9 @@ impl Room {
         self.objects.push(new_object)
     }
 
-    pub fn add_item(&mut self, item_name: &String, item_description: &String) {
-        let new_item = RoomObject { name: (*item_name).clone(), description: (*item_description).clone() };
-        self.objects.push(new_item)
+    pub fn add_item(&mut self, item_name: &String, item_description: &String, item_tags: &Vec<String>) {
+        let new_item = Item { name: (*item_name).clone(), description: (*item_description).clone(), tags: (*item_tags).clone() };
+        self.items.push(new_item)
     }
 
     pub fn add_objects(&mut self, object_names: Vec<String>, object_descriptions: Vec<String>) {
@@ -43,12 +43,12 @@ impl Room {
         }
     }
 
-    pub fn add_items(&mut self, item_names: Vec<String>, item_descriptions: Vec<String>) {
+    pub fn add_items(&mut self, item_names: Vec<String>, item_descriptions: Vec<String>, item_tags_s: Vec<Vec<String>>) {
         if item_names.len() != item_descriptions.len() {
             panic!("While adding items, number of names and number of descriptions do not match!");
         }
         for i in 0..item_names.len() {
-            self.add_object(&item_names[i], &item_descriptions[i])
+            self.add_item(&item_names[i], &item_descriptions[i], &item_tags_s[i])
         }
     }
 
@@ -74,7 +74,7 @@ impl Room {
 
     // Gets an Item given a name
     pub fn get_item(self, name: String) -> Item {
-        let mut found_item: Item = Item { name: String::from("NullItem"), tags: Vec::new() };
+        let mut found_item: Item = Item { name: String::from("NullItem"), description: String::from("NullItem"), tags: Vec::new() };
 
         for item in self.items {
             if item.name == name {
@@ -83,6 +83,19 @@ impl Room {
         }
 
         return found_item;
+    }
+
+    // Gets an Object given a name
+    pub fn get_object(self, name: String) -> RoomObject {
+        let mut found_object: RoomObject = RoomObject { name: String::from("NullObject"), description: String::from("NullObject") };
+
+        for object in self.objects {
+            if object.name == name {
+                found_object = object;
+            }
+        }
+
+        return found_object;
     }
 }
 

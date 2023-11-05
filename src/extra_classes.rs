@@ -1,5 +1,6 @@
 pub struct Item {
     pub name: String,
+    pub description: String,
     pub tags: Vec<String>,
 }
 
