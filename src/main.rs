@@ -38,7 +38,7 @@ fn main() {
 
 fn intro() {
     clear_screen();
-    println!("You wake up in the Desmet Lobby");
+    println!("You wake up in the Desmet Lobby.");
     sleep(2f64);
     println!("What would you like to do?");
     sleep(4.0);
