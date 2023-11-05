@@ -84,7 +84,8 @@ impl World {
 
 
         self.CROSBY = Default::default();
-        self.CROSBY.description = "You are inside of Crosby, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, (Foley Lawn), and (Herak Quad).".to_string();
+        self.CROSBY.description = "You are inside of Crosby, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, (Foley Lawn), and (Herak Quad).\
+        \nThere are two rooms here, the (Career Office) and a (Server Room)".to_string();
         self.CROSBY.address = "CROSBY".to_string();
         self.CROSBY.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "CENTRAL".to_string());
         self.CROSBY.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
