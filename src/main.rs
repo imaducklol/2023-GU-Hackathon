@@ -95,6 +95,16 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
                             "Nullroom" => {
                                 println!("I don't know how to get there.");
                             }
+                            "CROSBY" => {
+                                if player.get_item("ID CARD".to_string()).code_name != "NullItem".to_string() {
+                                    println!("You use the Id Card to get into Crosby.");
+                                    *destination = attempt_destination.clone();
+                                    input_success = true;
+                                    continue;
+                                } else {
+                                    println!("It seems that Crosby requires an Id Card to get in.");
+                                }
+                            }
                             _ => {
                                 *destination = attempt_destination.clone();
                                 input_success = true;
