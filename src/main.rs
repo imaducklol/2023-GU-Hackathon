@@ -28,7 +28,7 @@ fn main() {
 
     loop {
         let mut next_address: String = "".to_string();
-        command(current_room, &world, &mut next_address, &player);
+        command(current_room, &world, &mut next_address, &mut player);
         if next_address != "".to_string() {
             current_room = world.change_room(next_address.to_string());
             println!("{}", current_room.description);
@@ -40,7 +40,7 @@ fn intro() {
     println!("");
 }
 
-fn command(current_room: &Room, world: &World, destination: &mut String, player: &Player) {
+fn command(current_room: &Room, world: &World, destination: &mut String, player: &mut Player) {
     //HELP, GO, INVESTIGATE
     let mut input_success = false; // Keep track of if we have successfully handled input.
 
@@ -107,11 +107,31 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
                             input_success = true;
                             continue;
                         } else {
-                            println!("I do not know that");
+                            println!("I do not know that.");
                             input_success = true;
                             continue;
                         }
                     }
+
+                    "GRAB" => {
+                        let room_item = current_room.get_item(right.to_string());
+
+                        if room_item.name != "NullItem".to_string() {
+                            let player_item = player.get_item(right.to_string());
+                            if player_item.name != "NullItem" {
+                                println!("You already have that item.");
+                                input_success = true;
+                                continue;
+                            } else {
+                                player.inventory.push(room_item);
+                            }
+                        } else {
+                            println!("That's not here to grab.");
+                            input_success = true;
+                            continue;
+                        }
+                    }
+
                     _ => {
                         println!("Try again, I don't know {}.", left);
                     }
