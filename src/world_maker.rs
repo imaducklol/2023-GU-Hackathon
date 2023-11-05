@@ -177,13 +177,15 @@ the warmth of our communal hearths, for in doing so, we restore what it truly me
         self.desmet.add_connection("pathways".to_string(), "PATHWAYS".to_string());
 
         self.foley_lawn = Default::default();
-        self.foley_lawn.description = "You are on the Foley Lawn. From here you can see (Crosby), (Foley Library), (Hemmingson), the (East) part of Bulldog Alley, and the (Pathways) in between Desmet and Welch.".to_string();
+        self.foley_lawn.description = "You are on the Foley Lawn. From here you can see (Crosby), (Foley Library), (Hemmingson), the (East) part of Bulldog Alley, and the (Pathways) in between Desmet and Welch. A lone (Soccer Ball) lies in the field".to_string();
         self.foley_lawn.address = "foley_lawn".to_string();
         self.foley_lawn.add_connection("crosby".to_string(), "CROSBY".to_string());
         self.foley_lawn.add_connection("foley_library".to_string(), "FOLEY LIBRARY".to_string());
         self.foley_lawn.add_connection("hemmingson".to_string(), "HEMMINGSON".to_string());
         self.foley_lawn.add_connection("pathways".to_string(), "PATHWAYS".to_string());
         self.foley_lawn.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
+        self.foley_lawn.add_object(&"SOCCER BALL".to_string(), &"A soccer ball. Covered in mud.".to_string(), &"Soccer Ball".to_string(),);
+        self.foley_lawn.add_object(&"POOP".to_string(), &"Wait a minute... what did you just step in? Oh no... it's everywhere!".to_string(), &"Poop".to_string(),);
 
         self.foley_library = Default::default();
         self.foley_library.description = "You are inside Foley Library. You can see the door out to (Foley Lawn). There's a (Dusty Laptop) sitting on a desk. The lights are dim. You can make out the faint sound of whirring from above, coming from the (Staircase).".to_string();
@@ -193,10 +195,11 @@ the warmth of our communal hearths, for in doing so, we restore what it truly me
         self.foley_library.add_object(&"STAIRCASE".to_string(), &"You don't want to go up those steps.".to_string(), &"Staircase".to_string());
 
         self.hemmingson = Default::default();
-        self.hemmingson.description = "You are outside of Hemmingson, but the doors are locked. A scanner lies waiting. Behind you is (East) Bulldog Alley, and (Foley Lawn).".to_string();
+        self.hemmingson.description = "You are outside of Hemmingson, but the doors are locked. A scanner lies waiting. Behind you is (East) Bulldog Alley, and (Foley Lawn). A (Derelict Robot) sits outside the front doors.".to_string();
         self.hemmingson.address = "hemmingson".to_string();
         self.hemmingson.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
         self.hemmingson.add_connection("foley_lawn".to_string(), "FOLEY LAWN".to_string());
+        self.foley_lawn.add_object(&"DERELICT ROBOT".to_string(), &"Well, at least it seems safe. There's no energy left in the battery.".to_string(), &"Derelict Robot".to_string(),);
 
         self.herak_quad = Default::default();
         self.herak_quad.description = "You are on the Herak Quad; from here you can see (Crosby), (Hughes), and (Central) Bulldog Alley.".to_string();
