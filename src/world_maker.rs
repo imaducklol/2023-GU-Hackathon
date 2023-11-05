@@ -85,7 +85,7 @@ impl World {
 
         self.CROSBY = Default::default();
         self.CROSBY.description = "You are inside of Crosby, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, (Foley Lawn), and (Herak Quad).\
-        \nThere are two rooms here, the (Career Office) and a (Server Room)".to_string();
+        \nThere are two rooms here, the (Career Office) and a (Server Room)go college ".to_string();
         self.CROSBY.address = "CROSBY".to_string();
         self.CROSBY.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "CENTRAL".to_string());
         self.CROSBY.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
@@ -135,15 +135,33 @@ Percival Nightshade
 "Password: 8975 (This could be used on a safe)".to_string(),
 "Property of Percival Nightshade
 Use in hemmingson".to_string(),
-"The food delivery revolution and its consequences have been a disaster for the human race. It's a grim reality that we must confront head-on, a crisis born from our insatiable appetite for convenience at the expense of our humanity. In this age of instant gratification, the Sodexo food robots have become emblematic of our collective indifference to the very essence of what it means to be human.
+"The food delivery revolution and its consequences have been a disaster for the human race. It's a
+grim reality that we must confront head-on, a crisis born from our insatiable appetite for convenience
+at the expense of our humanity. In this age of instant gratification, the Sodexo food robots have become
+emblematic of our collective indifference to the very essence of what it means to be human.
 
-In the pursuit of efficiency, we have allowed the heart of our communities to wither away. We've relinquished the kitchen hearth, the family dinner table, and the neighborhood bistro in exchange for an assembly line of soulless machines. The Sodexo food robots, those metallic servants of our culinary desires, may promise speed and convenience, but they have stripped away the soul, the art, and the joy of sharing a meal.
+In the pursuit of efficiency, we have allowed the heart of our communities to wither away. We've relinquished
+the kitchen hearth, the family dinner table, and the neighborhood bistro in exchange for an assembly
+line of soulless machines. The Sodexo food robots, those metallic servants of our culinary desires,
+may promise speed and convenience, but they have stripped away the soul, the art, and the joy of sharing
+a meal.
 
-The act of preparing and sharing food has been at the core of our human experience for millennia. It has been the catalyst for conversation, laughter, and understanding. Yet, in our reckless quest for efficiency, we've relegated our food culture to the cold embrace of machines. The Sodexo food robots, no matter how advanced their algorithms, can never replicate the warmth of a grandmother's recipe, the secret ingredient passed down through generations, or the smile of a chef who takes pride in their craft.
+The act of preparing and sharing food has been at the core of our human experience for millennia.
+It has been the catalyst for conversation, laughter, and understanding. Yet, in our reckless quest for
+efficiency, we've relegated our food culture to the cold embrace of machines. The Sodexo food robots,
+no matter how advanced their algorithms, can never replicate the warmth of a grandmother's recipe, the
+secret ingredient passed down through generations, or the smile of a chef who takes pride in their craft.
 
-It is not the fault of the robots themselves but our complacency, our willingness to sacrifice the human touch for the sake of a few minutes saved. We have allowed the algorithms to replace the soul in our culinary endeavors, sacrificing our connection to our food, our communities, and ultimately ourselves. In doing so, we've surrendered the richness of human experience at the altar of convenience.
+It is not the fault of the robots themselves but our complacency, our willingness to sacrifice the human
+touch for the sake of a few minutes saved. We have allowed the algorithms to replace the soul in our
+culinary endeavors, sacrificing our connection to our food, our communities, and ultimately ourselves.
+In doing so, we've surrendered the richness of human experience at the altar of convenience.
 
-We must rise against this dehumanizing wave, reclaim our kitchens, our dining rooms, and our neighborhood restaurants. The Sodexo food robots should not be the symbols of our culinary future, but a stark reminder of what we have lost. It's time to celebrate the diversity of flavors, the creativity of chefs, and the human connections that only a shared meal can provide. Let us revive the art of cooking, the joy of breaking bread together, and restore the heart and soul to our dining experiences.
+We must rise against this dehumanizing wave, reclaim our kitchens, our dining rooms, and our neighborhood
+restaurants. The Sodexo food robots should not be the symbols of our culinary future, but a stark reminder
+of what we have lost. It's time to celebrate the diversity of flavors, the creativity of chefs, and
+the human connections that only a shared meal can provide. Let us revive the art of cooking, the joy
+of breaking bread together, and restore the heart and soul to our dining experiences.
 
 The food delivery revolution and the Sodexo food robots may have ushered in an era of convenience, but it's a convenience that has come at a heavy cost. It's time to reclaim our humanity, rediscover the beauty of real food, and forge a future where our love for cooking and sharing meals transcends the allure of automation. Our manifesto is a call to action, a plea to rediscover the soul of food and rekindle the warmth of our communal hearths, for in doing so, we restore what it truly means to be human.".to_string()),
             vec!("Job Application".to_string(), "Small Notecard".to_string(), "HACKER LAPTOP".to_string(), "Book".to_string())
