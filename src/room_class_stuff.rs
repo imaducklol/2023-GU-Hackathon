@@ -29,8 +29,8 @@ impl Room {
         self.objects.push(new_object)
     }
 
-    pub fn add_item(&mut self, item_name: &String, item_description: &String, item_tags: &Vec<String>) {
-        let new_item = Item { code_name: (*item_name).clone(), description: (*item_description).clone(), display_name: (*item_tags).clone() };
+    pub fn add_item(&mut self, item_name: &String, item_description: &String, item_display_name : &String) {
+        let new_item = Item { code_name: (*item_name).clone(), description: (*item_description).clone(), display_name: (*item_display_name).clone() };
         self.items.push(new_item)
     }
 
@@ -43,12 +43,12 @@ impl Room {
         }
     }
 
-    pub fn add_items(&mut self, item_names: Vec<String>, item_descriptions: Vec<String>, item_tags_s: Vec<Vec<String>>) {
+    pub fn add_items(&mut self, item_names: Vec<String>, item_descriptions: Vec<String>, item_display_names: Vec<String>) {
         if item_names.len() != item_descriptions.len() {
             panic!("While adding items, number of names and number of descriptions do not match!");
         }
         for i in 0..item_names.len() {
-            self.add_item(&item_names[i], &item_descriptions[i], &item_tags_s[i])
+            self.add_item(&item_names[i], &item_descriptions[i], &item_display_names[i])
         }
     }
 
@@ -74,7 +74,7 @@ impl Room {
 
     // Gets an Item given a name
     pub fn get_item(&self, name: String) -> Item {
-        let mut found_item: Item = Item { code_name: String::from("NullItem"), description: String::from("NullItem"), display_name: Vec::new() };
+        let mut found_item: Item = Item { code_name: String::from("NullItem"), description: String::from("NullItem"), display_name: String::from("NullItem") };
 
         for item in &(*self).items {
             if (*item).code_name == name {

@@ -44,8 +44,8 @@ impl World {
         self.BULLDOG_ALLEY_CENTRAL.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD Quad".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_objects(vec!("TREE".to_string(), "SHRUB".to_string(), "BUSH".to_string()),
-                                               vec!("There is a corpse in the tree".to_string(), "There is a (Red Keycard) in the shrub!".to_string(), "There are small pieces of broken robot in the bush".to_string()));
-        self.BULLDOG_ALLEY_CENTRAL.add_item(&"RED KEYCARD".to_string(), &"this key does something".to_string(), &"Red Keycard".to_string());
+            vec!("There is a corpse in the tree".to_string(), "There is a (Keycard) in the shrub!".to_string(), "There are small pieces of broken robot in the bush".to_string()));
+        self.BULLDOG_ALLEY_CENTRAL.add_item(&"KEYCARD".to_string(), &"this key does something".to_string(), &"Keycard".to_string());
 
         self.BULLDOG_ALLEY_EAST = Default::default();
         self.BULLDOG_ALLEY_EAST.description = "You are in the east part of Bulldog Alley, from here \
@@ -180,37 +180,49 @@ impl World {
     }
 
     //always input tag, not name
-    pub fn use_thing(&mut self, room: String, tag: String) {
+    pub fn use_thing(&mut self, room : String, tag : String) {
         let tag = tag.as_str();
         match room.as_str() {
             "BULLDOG_ALLEY_CENTRAL" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "BULLDOG_ALLEY_EAST" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "COLLEGE_HALL" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "CROSBY" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "DESMET" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "FOLEY_LAWN" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "FOLEY_LIBRARY" => {
@@ -224,7 +236,9 @@ impl World {
                         println!("Early this morning, Corion ordered a sandwhich from Iggy's, delivered by the Sodexo food robots. However, as the robot approached, disaster struck.
                         The robot approached Corion, and exploded. ");
                     }
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "HEMMINGSON" => {
@@ -234,17 +248,23 @@ impl World {
                         println!();
                         println!("The end.");
                     }
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "HERAK_QUAD" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "HUGHES" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "PATHWAYS" => {
@@ -253,23 +273,33 @@ impl World {
                         println!("A squirrel approaches you and takes the food.");
                         println!("You are filled with determination.");
                     }
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "ROSAUER" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
             "WELCH" => {
                 match tag {
-                    _ => {}
+                    _ => {
+
+                    }
                 }
             }
-            _ => {}
+            _ => {
+
+            }
         }
+
     }
 }
+
 
 
 impl Default for World {

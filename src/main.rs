@@ -116,13 +116,14 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
                     "GRAB" => {
                         let room_item = current_room.get_item(right.to_string());
 
-                        if room_item.name != "NullItem".to_string() {
+                        if room_item.code_name != "NullItem".to_string() {
                             let player_item = player.get_item(right.to_string());
-                            if player_item.name != "NullItem" {
+                            if player_item.code_name != "NullItem" {
                                 println!("You already have that item.");
                                 input_success = true;
                                 continue;
                             } else {
+                                println!("You grabbed {}.", room_item.display_name);
                                 player.inventory.push(room_item);
                             }
                         } else {

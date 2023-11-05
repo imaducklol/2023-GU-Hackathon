@@ -34,10 +34,10 @@ impl Player {
 
         for item in &(*self).inventory {
             
-            if item.name == self.inventory[self.inventory.len() + 1].name {
-                println!("{}.", item.name);
+            if item.code_name == self.inventory[self.inventory.len() - 1].code_name {
+                println!("{}.", item.display_name);
             } else {
-                print!("{},", item.name);
+                print!("{},", item.display_name);
             }
         }
     }
