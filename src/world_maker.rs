@@ -233,6 +233,9 @@ impl World {
             }
             "CROSBY" => {
                 match tag {
+                    "SMALL NOTECARD" => {
+                        println!("You look around and enter the password found on the notecard into the safe. Doing so, you find a (Hacker Laptop).");
+                    }
                     _ => {
 
                     }
