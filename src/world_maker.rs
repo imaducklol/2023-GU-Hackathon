@@ -36,7 +36,8 @@ impl World {
 
         self.BULLDOG_ALLEY_CENTRAL = Default::default();
         self.BULLDOG_ALLEY_CENTRAL.description = "You are in the center of Bulldog Alley, from here \
-        you can see (College Hall), (Crosby), (Desmet), (Herak Quad), and further down Bulldog Alley to the (East). ".to_string();
+        you can see (College Hall), (Crosby), (Desmet), (Herak Quad), and further down Bulldog Alley to the (East). Although Bulldog Alley is usually quite crowded, it is empty and barren.
+        There is a (Tree) and a (Bush) nearby.".to_string();
         self.BULLDOG_ALLEY_CENTRAL.address = "BULLDOG_ALLEY_CENTRAL".to_string();
         self.BULLDOG_ALLEY_CENTRAL.add_connection("COLLEGE_HALL".to_string(), "COLLEGE HALL".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("CROSBY".to_string(), "CROSBY".to_string());
@@ -44,15 +45,15 @@ impl World {
         self.BULLDOG_ALLEY_CENTRAL.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
         self.BULLDOG_ALLEY_CENTRAL.add_objects(
-            vec!("TREE".to_string(), "SHRUB".to_string(), "BUSH".to_string()),
+            vec!("TREE".to_string(), "CORPSE".to_string(), "BUSH".to_string()),
             vec!(
-                "There is a corpse in the tree".to_string(), 
-                "There is a (Keycard) in the shrub!".to_string(), 
-                "There are small pieces of broken robot in the bush".to_string()
+                "For a moment, you are convinced your eyes decieve you, but as you look on, you become convinced of what you see. A (Corpse) is stuck in the tree.".to_string(), 
+                "You are hesistant to approach, but as you do so, you see that the corpse is heavily damaged. It appears to be from some kind of explosion.".to_string(), 
+                "There is a pile of (Robot Scrap) lying inside the bush.".to_string()
             ),
-            vec!("Tree".to_string(), "Shrub".to_string(), "Bush".to_string()),
+            vec!("Tree".to_string(), "Corpse".to_string(), "Bush".to_string()),
         );
-        self.BULLDOG_ALLEY_CENTRAL.add_item(&"KEYCARD".to_string(), &"this key does something".to_string(), &"Keycard".to_string());
+        self.BULLDOG_ALLEY_CENTRAL.add_item(&"ROBOT SCRAP".to_string(), &"A pile of robot scrap. Maybe you could learn more about it in the library.".to_string(), &"Robot Scrap".to_string());
 
         self.BULLDOG_ALLEY_EAST = Default::default();
         self.BULLDOG_ALLEY_EAST.description = "You are in the east part of Bulldog Alley, from here \
@@ -68,9 +69,19 @@ impl World {
         self.BULLDOG_ALLEY_EAST.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
 
         self.COLLEGE_HALL = Default::default();
-        self.COLLEGE_HALL.description = "You are inside of College Hall; you can see the door back out to (Bulldog Alley).".to_string();
+        self.COLLEGE_HALL.description = "You are inside of College Hall; you can see the door back out to (Bulldog Alley). There's an (Unlocked Door) in the hallway ahead.".to_string();
         self.COLLEGE_HALL.address = "COLLEGE_HALL".to_string();
         self.COLLEGE_HALL.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "BULLDOG ALLEY".to_string());
+        self.COLLEGE_HALL.add_objects(
+            vec!("UNLOCKED DOOR".to_string(), "SODEXO CORPSE".to_string(),),
+            vec!(
+                "An unlocked door. It is slightly opened, and light pours in from the other side.".to_string(), 
+                "A corpse of someone in a Sodexo uniform. Their face is intact. There is a look of absolute terror on them. You don't dare to investigate their wounds. There's an (Id Card) on their uniform.".to_string(), 
+            ),
+            vec!("Unlocked Door".to_string(), "Sodexo Corpse".to_string(),),
+        );
+        self.COLLEGE_HALL.add_item(&"ID CARD".to_string(), &"A Sodexo employee Id Card. Could be useful to get in somewhere.".to_string(), &"Id Card".to_string());
+
 
         self.CROSBY = Default::default();
         self.CROSBY.description = "You are inside of Crosby, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, (Foley Lawn), and (Herak Quad).".to_string();
@@ -97,9 +108,12 @@ impl World {
         self.FOLEY_LAWN.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
 
         self.FOLEY_LIBRARY = Default::default();
-        self.FOLEY_LIBRARY.description = "You are inside Foley Library. You can see the door out to (Foley Lawn).".to_string();
+        self.FOLEY_LIBRARY.description = "You are inside Foley Library. You can see the door out to (Foley Lawn). There's a (Dusty Laptop) sitting on a desk. The 
+        lights are dim. You can make out the faint sound of whirring from above, coming from the (Staircase).".to_string();
         self.FOLEY_LIBRARY.address = "FOLEY_LIBRARY".to_string();
         self.FOLEY_LIBRARY.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
+        self.FOLEY_LIBRARY.add_object(&"DUSTY LAPTOP".to_string(), &"An old, dusty laptop. The power light is on.".to_string(), &"Dusty Laptop".to_string());
+        self.FOLEY_LIBRARY.add_object(&"STAIRCASE".to_string(), &"You don't want to go up those steps.".to_string(), &"Staircase".to_string());
 
         self.HEMMINGSON = Default::default();
         self.HEMMINGSON.description = "You are inside of Hemmingson, you can see the door(s) back out to (East) Bulldog Alley, and (Foley Lawn).".to_string();
@@ -206,6 +220,10 @@ impl World {
             }
             "COLLEGE_HALL" => {
                 match tag {
+                    "UNLOCKED DOOR" => {
+                        println!("You push the door open.");
+                        println!("It slowly creaks, revealing a desolate room ahead. The walls are caked in blood, and a (Sodexo Corpse) lies slumped in a chair.");
+                    }
                     _ => {
 
                     }
@@ -234,7 +252,7 @@ impl World {
             }
             "FOLEY_LIBRARY" => {
                 match tag {
-                    "LAPTOP 1" => {
+                    "DUSTY LAPTOP" => {
                         println!("You shake the mouse to wake up the laptop. As it boots up, you scroll through an article.");
                         println!("BREAKING - SODEXO FOOD ROBOTS MALFUNCTION");
                         println!("Published December 20, 2023");
@@ -242,6 +260,16 @@ impl World {
                         println!("However, some never get the luxury of going home. Corion Ilstess was found dead this morning in Foley.");
                         println!("Early this morning, Corion ordered a sandwhich from Iggy's, delivered by the Sodexo food robots. However, as the robot approached, disaster struck.
                         The robot approached Corion, and exploded. ");
+                    }
+                    "ROBOT SCRAP" => {
+                        println!("You sit down at one of the PCs in the library. Curious, you Google for information about the Robot Scrap, looking to find any information you can about it.");
+                        println!("You don't find much, but you notice that the last user was logged into their email. You open it. It reads:");
+                        println!("Subject : Recent Happenings");
+                        println!("Date : Dec 19, 2023");
+                        println!("To all Sodexo employees,");
+                        println!("It seems the robots have gone rogue. Please come to College Hall for an immediate meeting.");
+                        println!("Best,");
+                        println!("- Soda Dexter");
                     }
                     _ => {
 
@@ -254,6 +282,10 @@ impl World {
                         println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. All around you are Sodexo food robots. They have heart eyes.");
                         println!();
                         println!("The end.");
+                    }
+                    
+                    "ID CARD" => {
+                        println!("You try to scan yourself in to get further, but the card is declined. It seems the Sodexo Security system has been hacked... You'll need better tech to get in.");
                     }
                     _ => {
 
