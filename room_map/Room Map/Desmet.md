@@ -1,3 +1,3 @@
-[[BULLDOG_ALLEY_EAST]]
-[[BULLDOG_ALLEY_CENTRAL]]
-[[PATHWAYS]]
+[[bulldog_alley_east]]
+[[bulldog_alley_central]]
+[[pathways]]

@@ -1,3 +1,3 @@
-[[DESMET]]
-[[FOLEY_LAWN]]
-[[WELCH]]
+[[desmet]]
+[[foley_lawn]]
+[[welch]]

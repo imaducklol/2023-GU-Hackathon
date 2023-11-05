@@ -1,1 +1,1 @@
-[[HERAK_QUAD]]
+[[herak_quad]]

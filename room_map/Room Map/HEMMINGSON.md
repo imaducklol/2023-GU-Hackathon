@@ -1,2 +1,2 @@
-[[BULLDOG_ALLEY_EAST]]
-[[FOLEY_LAWN]]
+[[bulldog_alley_east]]
+[[foley_lawn]]

@@ -1,29 +1,27 @@
 use crate::room_class_stuff::Room;
-use crate::room_class_stuff::Connection;
-use crate::extra_classes::Item;
 
 pub struct World {
-    pub EVIL_BAD_ERROR_ROOM: Room,
-    pub BULLDOG_ALLEY_CENTRAL: Room,
-    pub BULLDOG_ALLEY_EAST: Room,
-    pub COLLEGE_HALL: Room,
-    pub CROSBY: Room,
-    pub DESMET: Room,
-    pub FOLEY_LAWN: Room,
-    pub FOLEY_LIBRARY: Room,
-    pub HEMMINGSON: Room,
-    pub HERAK_QUAD: Room,
-    pub HUGHES: Room,
-    pub PATHWAYS: Room,
-    pub ROSAUER: Room,
-    pub WELCH: Room,
+    pub evil_bad_error_room: Room,
+    pub bulldog_alley_central: Room,
+    pub bulldog_alley_east: Room,
+    pub college_hall: Room,
+    pub crosby: Room,
+    pub desmet: Room,
+    pub foley_lawn: Room,
+    pub foley_library: Room,
+    pub hemmingson: Room,
+    pub herak_quad: Room,
+    pub hughes: Room,
+    pub pathways: Room,
+    pub rosauer: Room,
+    pub welch: Room,
 }
 
 impl World {
     pub fn create_world(&mut self) {
-        self.EVIL_BAD_ERROR_ROOM = Default::default();
-        self.EVIL_BAD_ERROR_ROOM.description = "A very bad an evil room.".to_string();
-        self.EVIL_BAD_ERROR_ROOM.address = "NULL".to_string();
+        self.evil_bad_error_room = Default::default();
+        self.evil_bad_error_room.description = "A very bad an evil room.".to_string();
+        self.evil_bad_error_room.address = "NULL".to_string();
 
         //connections
 
@@ -34,17 +32,17 @@ impl World {
         self.NAME.add_connection("DESTINATION".to_string(), "PLACEHOLDER".to_string());
         */
 
-        self.BULLDOG_ALLEY_CENTRAL = Default::default();
-        self.BULLDOG_ALLEY_CENTRAL.description = "You are in the center of Bulldog Alley, from here \
+        self.bulldog_alley_central = Default::default();
+        self.bulldog_alley_central.description = "You are in the center of Bulldog Alley, from here \
         you can see (College Hall), (Crosby), (Desmet), (Herak Quad), and further down Bulldog Alley to the (East). Although Bulldog Alley is usually quite crowded, it is empty and barren.
         There is a (Tree) and a (Bush) nearby.".to_string();
-        self.BULLDOG_ALLEY_CENTRAL.address = "BULLDOG_ALLEY_CENTRAL".to_string();
-        self.BULLDOG_ALLEY_CENTRAL.add_connection("COLLEGE_HALL".to_string(), "COLLEGE HALL".to_string());
-        self.BULLDOG_ALLEY_CENTRAL.add_connection("CROSBY".to_string(), "CROSBY".to_string());
-        self.BULLDOG_ALLEY_CENTRAL.add_connection("DESMET".to_string(), "DESMET".to_string());
-        self.BULLDOG_ALLEY_CENTRAL.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD".to_string());
-        self.BULLDOG_ALLEY_CENTRAL.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
-        self.BULLDOG_ALLEY_CENTRAL.add_objects(
+        self.bulldog_alley_central.address = "bulldog_alley_central".to_string();
+        self.bulldog_alley_central.add_connection("college_hall".to_string(), "COLLEGE HALL".to_string());
+        self.bulldog_alley_central.add_connection("crosby".to_string(), "CROSBY".to_string());
+        self.bulldog_alley_central.add_connection("desmet".to_string(), "DESMET".to_string());
+        self.bulldog_alley_central.add_connection("herak_quad".to_string(), "HERAK QUAD".to_string());
+        self.bulldog_alley_central.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
+        self.bulldog_alley_central.add_objects(
             vec!("TREE".to_string(), "CORPSE".to_string(), "BUSH".to_string()),
             vec!(
                 "For a moment, you are convinced your eyes decieve you, but as you look on, you become convinced of what you see. A (Corpse) is stuck in the tree.".to_string(), 
@@ -53,26 +51,26 @@ impl World {
             ),
             vec!("Tree".to_string(), "Corpse".to_string(), "Bush".to_string()),
         );
-        self.BULLDOG_ALLEY_CENTRAL.add_item(&"ROBOT SCRAP".to_string(), &"A pile of robot scrap. Maybe you could learn more about it in the library.".to_string(), &"Robot Scrap".to_string());
+        self.bulldog_alley_central.add_item(&"ROBOT SCRAP".to_string(), &"A pile of robot scrap. Maybe you could learn more about it in the library.".to_string(), &"Robot Scrap".to_string());
 
-        self.BULLDOG_ALLEY_EAST = Default::default();
-        self.BULLDOG_ALLEY_EAST.description = "You are in the east part of Bulldog Alley, from here \
+        self.bulldog_alley_east = Default::default();
+        self.bulldog_alley_east.description = "You are in the east part of Bulldog Alley, from here \
         you can see (Crosby), (Desmet), (Foley Lawn), (Hemmingson), (Rosauer), (Welch), further down Bulldog Alley to the (West), and the (Pathways) between Welch and Desmet.".to_string();
-        self.BULLDOG_ALLEY_EAST.address = "BULLDOG_ALLEY_EAST".to_string();
-        self.BULLDOG_ALLEY_EAST.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "WEST".to_string());
-        self.BULLDOG_ALLEY_EAST.add_connection("CROSBY".to_string(), "CROSBY".to_string());
-        self.BULLDOG_ALLEY_EAST.add_connection("DESMET".to_string(), "DESMET".to_string());
-        self.BULLDOG_ALLEY_EAST.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
-        self.BULLDOG_ALLEY_EAST.add_connection("HEMMINGSON".to_string(), "HEMMINGSON".to_string());
-        self.BULLDOG_ALLEY_EAST.add_connection("ROSAUER".to_string(), "ROSAUER".to_string());
-        self.BULLDOG_ALLEY_EAST.add_connection("WELCH".to_string(), "WELCH".to_string());
-        self.BULLDOG_ALLEY_EAST.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
+        self.bulldog_alley_east.address = "bulldog_alley_east".to_string();
+        self.bulldog_alley_east.add_connection("bulldog_alley_central".to_string(), "WEST".to_string());
+        self.bulldog_alley_east.add_connection("crosby".to_string(), "CROSBY".to_string());
+        self.bulldog_alley_east.add_connection("desmet".to_string(), "DESMET".to_string());
+        self.bulldog_alley_east.add_connection("foley_lawn".to_string(), "FOLEY LAWN".to_string());
+        self.bulldog_alley_east.add_connection("hemmingson".to_string(), "HEMMINGSON".to_string());
+        self.bulldog_alley_east.add_connection("rosauer".to_string(), "ROSAUER".to_string());
+        self.bulldog_alley_east.add_connection("welch".to_string(), "WELCH".to_string());
+        self.bulldog_alley_east.add_connection("pathways".to_string(), "PATHWAYS".to_string());
 
-        self.COLLEGE_HALL = Default::default();
-        self.COLLEGE_HALL.description = "You are inside of College Hall; you can see the door back out to (Bulldog Alley). There's an (Unlocked Door) in the hallway ahead.".to_string();
-        self.COLLEGE_HALL.address = "COLLEGE_HALL".to_string();
-        self.COLLEGE_HALL.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "BULLDOG ALLEY".to_string());
-        self.COLLEGE_HALL.add_objects(
+        self.college_hall = Default::default();
+        self.college_hall.description = "You are inside of College Hall; you can see the door back out to (Bulldog Alley). There's an (Unlocked Door) in the hallway ahead.".to_string();
+        self.college_hall.address = "college_hall".to_string();
+        self.college_hall.add_connection("bulldog_alley_central".to_string(), "BULLDOG ALLEY".to_string());
+        self.college_hall.add_objects(
             vec!("UNLOCKED DOOR".to_string(), "SODEXO CORPSE".to_string(),),
             vec!(
                 "An unlocked door. It is slightly opened, and light pours in from the other side.".to_string(), 
@@ -80,23 +78,23 @@ impl World {
             ),
             vec!("Unlocked Door".to_string(), "Sodexo Corpse".to_string(),),
         );
-        self.COLLEGE_HALL.add_item(&"ID CARD".to_string(), &"A Sodexo employee Id Card. Could be useful to get in somewhere.".to_string(), &"Id Card".to_string());
+        self.college_hall.add_item(&"ID CARD".to_string(), &"A Sodexo employee Id Card. Could be useful to get in somewhere.".to_string(), &"Id Card".to_string());
 
 
-        self.CROSBY = Default::default();
-        self.CROSBY.description = "You are inside of Crosby, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, (Foley Lawn), and (Herak Quad).\
+        self.crosby = Default::default();
+        self.crosby.description = "You are inside of Crosby, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, (Foley Lawn), and (Herak Quad).\
         \nThere are two rooms here, the (Career Office) and a (Server Room)go college ".to_string();
-        self.CROSBY.address = "CROSBY".to_string();
-        self.CROSBY.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "CENTRAL".to_string());
-        self.CROSBY.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
-        self.CROSBY.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
-        self.CROSBY.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD".to_string());
-        self.CROSBY.add_objects(vec!("CAREER OFFICE".to_string(), "SERVER ROOM".to_string()),
+        self.crosby.address = "crosby".to_string();
+        self.crosby.add_connection("bulldog_alley_central".to_string(), "CENTRAL".to_string());
+        self.crosby.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
+        self.crosby.add_connection("foley_lawn".to_string(), "FOLEY LAWN".to_string());
+        self.crosby.add_connection("herak_quad".to_string(), "HERAK QUAD".to_string());
+        self.crosby.add_objects(vec!("CAREER OFFICE".to_string(), "SERVER ROOM".to_string()),
                                 vec!(
                                     "As you enter the Career Office, you see on the desk two papers. One of them appears to be a (job application). The other is a (small notecard).".to_string(),
                                     "You look inside the Server Room. It has servers in it. Perfectly normal, but behind them there is a small safe with a (book) on top".to_string()),
-                                    vec!("Career Office".to_string(), "Server Room".to_string()));
-        self.CROSBY.add_items(vec!("JOB APPLICATION".to_string(), "SMALL NOTECARD".to_string(), "HACKER LAPTOP".to_string(), "BOOK".to_string()),
+                                vec!("Career Office".to_string(), "Server Room".to_string()));
+        self.crosby.add_items(vec!("JOB APPLICATION".to_string(), "SMALL NOTECARD".to_string(), "HACKER LAPTOP".to_string(), "BOOK".to_string()),
                               vec!(
 "Percival Nightshade
 123 Boone Ave, Spokane, WA 99256
@@ -168,115 +166,115 @@ it's a convenience that has come at a heavy cost. It's time to reclaim our human
 beauty of real food, and forge a future where our love for cooking and sharing meals transcends the
 allure of automation. Our manifesto is a call to action, a plea to rediscover the soul of food and rekindle
 the warmth of our communal hearths, for in doing so, we restore what it truly means to be human.".to_string()),
-            vec!("Job Application".to_string(), "Small Notecard".to_string(), "HACKER LAPTOP".to_string(), "Book".to_string())
+                              vec!("Job Application".to_string(), "Small Notecard".to_string(), "HACKER LAPTOP".to_string(), "Book".to_string())
         );
 
-        self.DESMET = Default::default();
-        self.DESMET.description = "You are inside of Desmet, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, and the (Pathways).".to_string();
-        self.DESMET.address = "DESMET".to_string();
-        self.DESMET.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
-        self.DESMET.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "CENTRAL".to_string());
-        self.DESMET.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
+        self.desmet = Default::default();
+        self.desmet.description = "You are inside of Desmet, you can see the door(s) back out to (Central) Bulldog Alley, (East) Bulldog Alley, and the (Pathways).".to_string();
+        self.desmet.address = "desmet".to_string();
+        self.desmet.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
+        self.desmet.add_connection("bulldog_alley_central".to_string(), "CENTRAL".to_string());
+        self.desmet.add_connection("pathways".to_string(), "PATHWAYS".to_string());
 
-        self.FOLEY_LAWN = Default::default();
-        self.FOLEY_LAWN.description = "You are on the Foley Lawn. From here you can see (Crosby), (Foley Library), (Hemmingson), the (East) part of Bulldog Alley, and the (Pathways) in between Desmet and Welch.".to_string();
-        self.FOLEY_LAWN.address = "FOLEY_LAWN".to_string();
-        self.FOLEY_LAWN.add_connection("CROSBY".to_string(), "CROSBY".to_string());
-        self.FOLEY_LAWN.add_connection("FOLEY_LIBRARY".to_string(), "FOLEY LIBRARY".to_string());
-        self.FOLEY_LAWN.add_connection("HEMMINGSON".to_string(), "HEMMINGSON".to_string());
-        self.FOLEY_LAWN.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
-        self.FOLEY_LAWN.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
+        self.foley_lawn = Default::default();
+        self.foley_lawn.description = "You are on the Foley Lawn. From here you can see (Crosby), (Foley Library), (Hemmingson), the (East) part of Bulldog Alley, and the (Pathways) in between Desmet and Welch.".to_string();
+        self.foley_lawn.address = "foley_lawn".to_string();
+        self.foley_lawn.add_connection("crosby".to_string(), "CROSBY".to_string());
+        self.foley_lawn.add_connection("foley_library".to_string(), "FOLEY LIBRARY".to_string());
+        self.foley_lawn.add_connection("hemmingson".to_string(), "HEMMINGSON".to_string());
+        self.foley_lawn.add_connection("pathways".to_string(), "PATHWAYS".to_string());
+        self.foley_lawn.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
 
-        self.FOLEY_LIBRARY = Default::default();
-        self.FOLEY_LIBRARY.description = "You are inside Foley Library. You can see the door out to (Foley Lawn). There's a (Dusty Laptop) sitting on a desk. The lights are dim. You can make out the faint sound of whirring from above, coming from the (Staircase).".to_string();
-        self.FOLEY_LIBRARY.address = "FOLEY_LIBRARY".to_string();
-        self.FOLEY_LIBRARY.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
-        self.FOLEY_LIBRARY.add_object(&"DUSTY LAPTOP".to_string(), &"An old, dusty laptop. The power light is on.".to_string(), &"Dusty Laptop".to_string());
-        self.FOLEY_LIBRARY.add_object(&"STAIRCASE".to_string(), &"You don't want to go up those steps.".to_string(), &"Staircase".to_string());
+        self.foley_library = Default::default();
+        self.foley_library.description = "You are inside Foley Library. You can see the door out to (Foley Lawn). There's a (Dusty Laptop) sitting on a desk. The lights are dim. You can make out the faint sound of whirring from above, coming from the (Staircase).".to_string();
+        self.foley_library.address = "foley_library".to_string();
+        self.foley_library.add_connection("foley_lawn".to_string(), "FOLEY LAWN".to_string());
+        self.foley_library.add_object(&"DUSTY LAPTOP".to_string(), &"An old, dusty laptop. The power light is on.".to_string(), &"Dusty Laptop".to_string());
+        self.foley_library.add_object(&"STAIRCASE".to_string(), &"You don't want to go up those steps.".to_string(), &"Staircase".to_string());
 
-        self.HEMMINGSON = Default::default();
-        self.HEMMINGSON.description = "You are outside of Hemmingson, but the doors are locked. A scanner lies waiting. Behind you is (East) Bulldog Alley, and (Foley Lawn).".to_string();
-        self.HEMMINGSON.address = "HEMMINGSON".to_string();
-        self.HEMMINGSON.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
-        self.HEMMINGSON.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
+        self.hemmingson = Default::default();
+        self.hemmingson.description = "You are outside of Hemmingson, but the doors are locked. A scanner lies waiting. Behind you is (East) Bulldog Alley, and (Foley Lawn).".to_string();
+        self.hemmingson.address = "hemmingson".to_string();
+        self.hemmingson.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
+        self.hemmingson.add_connection("foley_lawn".to_string(), "FOLEY LAWN".to_string());
 
-        self.HERAK_QUAD = Default::default();
-        self.HERAK_QUAD.description = "You are on the Herak Quad; from here you can see (Crosby), (Hughes), and (Central) Bulldog Alley.".to_string();
-        self.HERAK_QUAD.address = "HERAK_QUAD".to_string();
-        self.HERAK_QUAD.add_connection("CROSBY".to_string(), "CROSBY".to_string());
-        self.HERAK_QUAD.add_connection("HUGHES".to_string(), "HUGHES".to_string());
-        self.HERAK_QUAD.add_connection("BULLDOG_ALLEY_CENTRAL".to_string(), "CENTRAL".to_string());
+        self.herak_quad = Default::default();
+        self.herak_quad.description = "You are on the Herak Quad; from here you can see (Crosby), (Hughes), and (Central) Bulldog Alley.".to_string();
+        self.herak_quad.address = "herak_quad".to_string();
+        self.herak_quad.add_connection("crosby".to_string(), "CROSBY".to_string());
+        self.herak_quad.add_connection("hughes".to_string(), "HUGHES".to_string());
+        self.herak_quad.add_connection("bulldog_alley_central".to_string(), "CENTRAL".to_string());
 
-        self.HUGHES = Default::default();
-        self.HUGHES.description = "You are inside of HUGHES, you can see the door back out to (Herak Quad)".to_string();
-        self.HUGHES.address = "HUGHES".to_string();
-        self.HUGHES.add_connection("HERAK_QUAD".to_string(), "HERAK QUAD".to_string());
+        self.hughes = Default::default();
+        self.hughes.description = "You are inside of hughes, you can see the door back out to (Herak Quad)".to_string();
+        self.hughes.address = "hughes".to_string();
+        self.hughes.add_connection("herak_quad".to_string(), "HERAK QUAD".to_string());
 
-        self.PATHWAYS = Default::default();
-        self.PATHWAYS.description = "You are in the pathways between (Desmet) and (Welch). From here you can see those buildings in addition to (Foley Lawn) and the (East) side of Bulldog Alley.".to_string();
-        self.PATHWAYS.address = "PATHWAYS".to_string();
-        self.PATHWAYS.add_connection("DESMET".to_string(), "DESMET".to_string());
-        self.PATHWAYS.add_connection("FOLEY_LAWN".to_string(), "FOLEY LAWN".to_string());
-        self.PATHWAYS.add_connection("WELCH".to_string(), "WELCH".to_string());
-        self.PATHWAYS.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
+        self.pathways = Default::default();
+        self.pathways.description = "You are in the pathways between (Desmet) and (Welch). From here you can see those buildings in addition to (Foley Lawn) and the (East) side of Bulldog Alley.".to_string();
+        self.pathways.address = "pathways".to_string();
+        self.pathways.add_connection("desmet".to_string(), "DESMET".to_string());
+        self.pathways.add_connection("foley_lawn".to_string(), "FOLEY LAWN".to_string());
+        self.pathways.add_connection("welch".to_string(), "WELCH".to_string());
+        self.pathways.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
 
-        self.ROSAUER = Default::default();
-        self.ROSAUER.description = "You are inside of ROSAUER, you can see the door back out to the (East) side of Bulldog Alley.".to_string();
-        self.ROSAUER.address = "ROSAUER".to_string();
-        self.ROSAUER.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
+        self.rosauer = Default::default();
+        self.rosauer.description = "You are inside of rosauer, you can see the door back out to the (East) side of Bulldog Alley.".to_string();
+        self.rosauer.address = "rosauer".to_string();
+        self.rosauer.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
 
-        self.WELCH = Default::default();
-        self.WELCH.description = "You are inside of WELCH, you can see the doors back out to the (East) side of Bulldog Alley and to the (Pathways) between Welch and Desmet. Nearby there is a (Tree).".to_string();
-        self.WELCH.address = "WELCH".to_string();
-        self.WELCH.add_connection("BULLDOG_ALLEY_EAST".to_string(), "EAST".to_string());
-        self.WELCH.add_connection("PATHWAYS".to_string(), "PATHWAYS".to_string());
-        self.WELCH.add_item(&"SQUIRREL FOOD".to_string(), &"A few acorns. Maybe squribos would enjoy it.".to_string(), &"Squirrel Food".to_string());
-        self.WELCH.add_object(&"TREE".to_string(), &"There's a few acorns on the ground. Perhaps... (Squirrel Food)?".to_string(), &"Tree".to_string());
+        self.welch = Default::default();
+        self.welch.description = "You are inside of welch, you can see the doors back out to the (East) side of Bulldog Alley and to the (Pathways) between Welch and Desmet. Nearby there is a (Tree).".to_string();
+        self.welch.address = "welch".to_string();
+        self.welch.add_connection("bulldog_alley_east".to_string(), "EAST".to_string());
+        self.welch.add_connection("pathways".to_string(), "PATHWAYS".to_string());
+        self.welch.add_item(&"SQUIRREL FOOD".to_string(), &"A few acorns. Maybe squribos would enjoy it.".to_string(), &"Squirrel Food".to_string());
+        self.welch.add_object(&"TREE".to_string(), &"There's a few acorns on the ground. Perhaps... (Squirrel Food)?".to_string(), &"Tree".to_string());
     }
 
     pub fn change_room(&self, destination: String) -> &Room {
-        match destination.as_str() {
-            "BULLDOG_ALLEY_CENTRAL" => {
-                return &self.BULLDOG_ALLEY_CENTRAL;
+        return match destination.as_str() {
+            "bulldog_alley_central" => {
+                &self.bulldog_alley_central
             }
-            "BULLDOG_ALLEY_EAST" => {
-                return &self.BULLDOG_ALLEY_EAST;
+            "bulldog_alley_east" => {
+                &self.bulldog_alley_east
             }
-            "COLLEGE_HALL" => {
-                return &self.COLLEGE_HALL;
+            "college_hall" => {
+                &self.college_hall
             }
-            "CROSBY" => {
-                return &self.CROSBY;
+            "crosby" => {
+                &self.crosby
             }
-            "DESMET" => {
-                return &self.DESMET;
+            "desmet" => {
+                &self.desmet
             }
-            "FOLEY_LAWN" => {
-                return &self.FOLEY_LAWN;
+            "foley_lawn" => {
+                &self.foley_lawn
             }
-            "FOLEY_LIBRARY" => {
-                return &self.FOLEY_LIBRARY;
+            "foley_library" => {
+                &self.foley_library
             }
-            "HEMMINGSON" => {
-                return &self.HEMMINGSON;
+            "hemmingson" => {
+                &self.hemmingson
             }
-            "HERAK_QUAD" => {
-                return &self.HERAK_QUAD;
+            "herak_quad" => {
+                &self.herak_quad
             }
-            "HUGHES" => {
-                return &self.HUGHES;
+            "hughes" => {
+                &self.hughes
             }
-            "PATHWAYS" => {
-                return &self.PATHWAYS;
+            "pathways" => {
+                &self.pathways
             }
-            "ROSAUER" => {
-                return &self.ROSAUER;
+            "rosauer" => {
+                &self.rosauer
             }
-            "WELCH" => {
-                return &self.WELCH;
+            "welch" => {
+                &self.welch
             }
             _ => {
-                return &self.EVIL_BAD_ERROR_ROOM;
+                &self.evil_bad_error_room
             }
         }
     }
@@ -285,21 +283,21 @@ the warmth of our communal hearths, for in doing so, we restore what it truly me
     pub fn use_thing(&self, room : String, tag : String) {
         let tag = tag.as_str();
         match room.as_str() {
-            "BULLDOG_ALLEY_CENTRAL" => {
+            "bulldog_alley_central" => {
                 match tag {
                     _ => {
                         println!("Unable to use that.");
                     }
                 }
             }
-            "BULLDOG_ALLEY_EAST" => {
+            "bulldog_alley_east" => {
                 match tag {
                     _ => {
                         println!("Unable to use that.");
                     }
                 }
             }
-            "COLLEGE_HALL" => {
+            "college_hall" => {
                 match tag {
                     "UNLOCKED DOOR" => {
                         println!("You push the door open.");
@@ -310,7 +308,7 @@ the warmth of our communal hearths, for in doing so, we restore what it truly me
                     }
                 }
             }
-            "CROSBY" => {
+            "crosby" => {
                 match tag {
                     "SMALL NOTECARD" => {
                         println!("You look around and enter the password found on the notecard into the safe. Doing so, you find a (Hacker Laptop).");
@@ -320,21 +318,21 @@ the warmth of our communal hearths, for in doing so, we restore what it truly me
                     }
                 }
             }
-            "DESMET" => {
+            "desmet" => {
                 match tag {
                     _ => {
                         println!("Unable to use that.");
                     }
                 }
             }
-            "FOLEY_LAWN" => {
+            "foley_lawn" => {
                 match tag {
                     _ => {
                         println!("Unable to use that.");
                     }
                 }
             }
-            "FOLEY_LIBRARY" => {
+            "foley_library" => {
                 match tag {
                     "DUSTY LAPTOP" => {
                         println!("You shake the mouse to wake up the laptop. As it boots up, you scroll through an article.");
@@ -359,7 +357,7 @@ the warmth of our communal hearths, for in doing so, we restore what it truly me
                     }
                 }
             }
-            "HEMMINGSON" => {
+            "hemmingson" => {
                 match tag {
                     "HACKER LAPTOP" => {
                         println!("You open the laptop and boot it up. As you finish entering the code, you hear a slow buzz. The door opens. All around you are Sodexo food robots. They have heart eyes.");
@@ -377,21 +375,21 @@ the warmth of our communal hearths, for in doing so, we restore what it truly me
                     }
                 }
             }
-            "HERAK_QUAD" => {
+            "herak_quad" => {
                 match tag {
                     _ => {
                         println!("Unable to use that.");
                     }
                 }
             }
-            "HUGHES" => {
+            "hughes" => {
                 match tag {
                     _ => {
                         println!("Unable to use that.");
                     }
                 }
             }
-            "PATHWAYS" => {
+            "pathways" => {
                 match tag {
                     "SQUIRREL FOOD" => {
                         println!("A squirrel approaches you and takes the food.");
@@ -402,14 +400,14 @@ the warmth of our communal hearths, for in doing so, we restore what it truly me
                     }
                 }
             }
-            "ROSAUER" => {
+            "rosauer" => {
                 match tag {
                     _ => {
                         println!("Unable to use that.");
                     }
                 }
             }
-            "WELCH" => {
+            "welch" => {
                 match tag {
                     _ => {
                         println!("Unable to use that.");
@@ -430,20 +428,20 @@ impl Default for World {
     fn default() -> Self {
         // Default Constructor my beloved.
         World {
-            EVIL_BAD_ERROR_ROOM: Default::default(),
-            BULLDOG_ALLEY_CENTRAL: Default::default(),
-            BULLDOG_ALLEY_EAST: Default::default(),
-            COLLEGE_HALL: Default::default(),
-            CROSBY: Default::default(),
-            DESMET: Default::default(),
-            FOLEY_LAWN: Default::default(),
-            FOLEY_LIBRARY: Default::default(),
-            HEMMINGSON: Default::default(),
-            HERAK_QUAD: Default::default(),
-            HUGHES: Default::default(),
-            PATHWAYS: Default::default(),
-            ROSAUER: Default::default(),
-            WELCH: Default::default(),
+            evil_bad_error_room: Default::default(),
+            bulldog_alley_central: Default::default(),
+            bulldog_alley_east: Default::default(),
+            college_hall: Default::default(),
+            crosby: Default::default(),
+            desmet: Default::default(),
+            foley_lawn: Default::default(),
+            foley_library: Default::default(),
+            hemmingson: Default::default(),
+            herak_quad: Default::default(),
+            hughes: Default::default(),
+            pathways: Default::default(),
+            rosauer: Default::default(),
+            welch: Default::default(),
         }
     }
 }    

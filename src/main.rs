@@ -1,5 +1,3 @@
-use std::default;
-
 use crate::{input::take_input, world_maker::World, room_class_stuff::Room, toolkit::clear_screen};
 use crate::player_class_stuff::Player;
 use crate::toolkit::{fancy_println, print_gap_clear, sleep};
@@ -8,9 +6,9 @@ mod player_class_stuff;
 mod room_class_stuff;
 mod extra_classes;
 mod input;
-mod enemy_interactions;
 mod toolkit;
 mod world_maker;
+//mod enemy_interactions;
 
 fn main() {
     let mut world: World = Default::default();
@@ -22,9 +20,9 @@ fn main() {
         inventory: vec![],
     };
 
-    let mut current_room = &world.BULLDOG_ALLEY_CENTRAL;
+    let mut current_room = &world.bulldog_alley_central;
 
-    let dev_mode = true;
+    let dev_mode = false;
 
     if !dev_mode {
         intro();
@@ -157,7 +155,7 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
                             "Nullroom" => {
                                 println!("I don't know how to get there.");
                             }
-                            "CROSBY" => {
+                            "crosby" => {
                                 if player.get_item("ID CARD".to_string()).code_name != "NullItem".to_string() {
                                     println!("You use the Id Card to get into Crosby.");
                                     *destination = attempt_destination.clone();

@@ -1,6 +1,6 @@
-[[COLLEGE_HALL]]
-[[CROSBY]]
-[[DESMET]]
-[[HERAK_QUAD]]
-[[BULLDOG_ALLEY_EAST]]
+[[college_hall]]
+[[crosby]]
+[[desmet]]
+[[herak_quad]]
+[[bulldog_alley_east]]
 

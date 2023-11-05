@@ -1,2 +1,2 @@
-[[BULLDOG_ALLEY_EAST]]
-[[PATHWAYS]]
+[[bulldog_alley_east]]
+[[pathways]]

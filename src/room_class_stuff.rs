@@ -1,4 +1,3 @@
-use std::default;
 use crate::extra_classes::{Item, RoomObject};
 
 pub struct Connection {
@@ -20,7 +19,7 @@ pub struct Room {
 impl Room {
     // Adds a connection to the room.
     pub fn add_connection(&mut self, destination: String, name: String) {
-        let new_connection = Connection { destination: destination, name: name };
+        let new_connection = Connection { destination, name };
         self.connections.push(new_connection);
     }
 

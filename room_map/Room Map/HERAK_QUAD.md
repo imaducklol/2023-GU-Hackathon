@@ -1,3 +1,3 @@
-[[CROSBY]]
-[[HUGHES]]
-[[BULLDOG_ALLEY_CENTRAL]]
+[[crosby]]
+[[hughes]]
+[[bulldog_alley_central]]

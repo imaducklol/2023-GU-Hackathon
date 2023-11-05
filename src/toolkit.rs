@@ -1,7 +1,7 @@
 use std::{io, thread};
 use std::io::Write;
 
-pub fn roll_die(sides: &i32, modifier: &i32) -> i32 {
+/*pub fn roll_die(sides: &i32, modifier: &i32) -> i32 {
     // Import needed random stuff
     use rand::prelude::*;
 
@@ -14,7 +14,7 @@ pub fn roll_die(sides: &i32, modifier: &i32) -> i32 {
     let final_value: i32 = roll + modifier;
 
     final_value
-}
+}*/
 
 pub fn clear_screen() {
     print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
@@ -26,7 +26,7 @@ pub fn print_gap_clear() {
 }
 
 pub fn sleep(seconds: f64) {
-    use std::{thread, time};
+    use std::time;
     thread::sleep(time::Duration::from_micros((seconds * 1_000_000f64) as u64));
 }
 
@@ -34,7 +34,7 @@ pub fn fancy_println(text: String, sleep_time_seconds: f64) {
     let char_vec: Vec<char> = text.chars().collect();
     for char in char_vec {
         print!("{}", char);
-        io::stdout().flush();
+        let _ = io::stdout().flush();
         sleep(sleep_time_seconds);
     }
     println!();

@@ -1,4 +1,4 @@
-[[BULLDOG_ALLEY_CENTRAL]]
-[[BULLDOG_ALLEY_EAST]]
-[[FOLEY_LAWN]]
-[[HERAK_QUAD]]
+[[bulldog_alley_central]]
+[[bulldog_alley_east]]
+[[foley_lawn]]
+[[herak_quad]]
