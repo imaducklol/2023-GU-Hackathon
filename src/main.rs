@@ -22,7 +22,7 @@ fn main() {
 
     let mut current_room = &world.bulldog_alley_central;
 
-    let dev_mode = false;
+    let dev_mode = true;
 
     if !dev_mode {
         intro();
