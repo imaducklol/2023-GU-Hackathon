@@ -12,7 +12,6 @@ mod toolkit;
 mod world_maker;
 
 fn main() {
-    println!("Hello, world!");
     let mut world: World = Default::default();
     world.create_world();
     let mut player = Player {
@@ -51,7 +50,7 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
 
         // Check for HELP command
         if "HELP" == input_command {
-            println!("Here are available commands: HELP, GO, INVESTIGATE, LOOK AROUND, GRAB, INVENTORY, USE");
+            println!("Here are available commands: HELP, GO, INVESTIGATE, LOOK AROUND, GRAB, INVENTORY, USE, QUIT");
             input_success = true;
             continue;
         }
@@ -68,6 +67,11 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
             player.print_inventory();
             input_success = true;
             continue;
+        }
+
+        // Check for QUIT command
+        if "QUIT" == input_command {
+            std::process::exit(0);
         }
 
         // Check to see if it was split
