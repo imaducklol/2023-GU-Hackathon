@@ -98,12 +98,12 @@ fn command(current_room: &Room, world: &World, destination: &mut String, player:
                         //println!("{}", right);
                         let room_object = current_room.get_object(right.to_string());
                         let inv_item = player.get_item(right.to_string());
-                        if room_object.name != "NullObject".to_string() {
-                            println!("{}", room_object.description);
+                        if inv_item.code_name != "NullItem".to_string() {
+                            println!("{}", inv_item.description);
                             input_success = true;
                             continue;
-                        } else if inv_item.name != "NullItem".to_string() {
-                            println!("{}", inv_item.description);
+                        } else if room_object.name != "NullObject".to_string() {
+                            println!("{}", room_object.description);
                             input_success = true;
                             continue;
                         } else {

@@ -1,9 +1,8 @@
 #[derive(Clone)]
-
 pub struct Item {
-    pub name: String,
+    pub code_name: String,
     pub description: String,
-    pub tags: Vec<String>,
+    pub display_name: String,
 }
 
 #[derive(Clone)]
